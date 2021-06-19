@@ -1,0 +1,1 @@
+Two different PCs versions of the classical CSP process 'Clock'. One version is more compact avoiding the need to define an explicit reference.
