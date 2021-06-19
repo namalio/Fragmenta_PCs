@@ -1,0 +1,10 @@
+GreetChat = 
+   let 
+      GreetChat0 = 
+         let 
+            ChatBye = bye -> SKIP
+                  [] chat -> ChatBye
+         within
+            greet -> ChatBye
+   within
+      GreetChat0; dismiss -> SKIP
