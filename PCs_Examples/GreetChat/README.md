@@ -1,1 +1,1 @@
-A PC describing a greet and chat process, in which someone greets, keeps chatting, says goodbye and then dismisses. This illustrates atfer connectors.
+A PC describing a greet and chat process, in which someone greets, keeps chatting, says goodbye and then dismisses. This illustrates atfer connectors and the external choice operator.
