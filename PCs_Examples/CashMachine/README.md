@@ -8,4 +8,4 @@ using a parallel composition operator which synchronises on events <i>deny</i>, 
 * <i>PC_Authentication</i> describes authentication through a number of tries (parameter <i>n</i>).
 If there are no tries left, then event <i>deny</i> happens as authentication failed. If there are tries left then authentication may either be successful (<i>grant</i>) or simply <i>fail</i>, in which case a user may have another try, if there are tries left.
 * <i>PC_Withdraw</i> says that upon <i>withdraw</i> the cash may be collected, or the request may be denied (event <i>cashDeny</i>) due to insufficient funds or because the machine is unable to give out that amount.
-* <i>PC_ShowBalance</i> says that the balance is shown to the customer (event <i>showBal</i>). 
+* <i>PC_ShowBalance</i> says that the balance is shown to the customer (event <i>showBalance</i>). 
