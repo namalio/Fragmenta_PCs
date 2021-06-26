@@ -1,0 +1,1 @@
+channel cardIn, deny, cardEject, cCollectTimeout, cardSwallow, cCollect, cancel

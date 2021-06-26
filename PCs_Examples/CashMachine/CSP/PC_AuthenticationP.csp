@@ -1,0 +1,4 @@
+Authenticate(n) = if n>0
+    then fail -> Authenticate(n-1)
+       |~| grant -> SKIP
+   else deny -> SKIP

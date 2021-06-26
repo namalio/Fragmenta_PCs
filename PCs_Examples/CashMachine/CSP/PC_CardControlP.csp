@@ -1,0 +1,8 @@
+CardControl = 
+   let 
+      DoCardIn = deny -> cardSwallow -> SKIP
+            [] cancel -> cardEject -> (cCollectTimeout -> cardSwallow -> SKIP
+            [] cCollect -> SKIP)
+   within
+      cardIn -> DoCardIn
+         [] cancel -> SKIP

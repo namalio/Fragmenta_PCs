@@ -1,0 +1,6 @@
+Withdraw = 
+   let 
+      DoWithdraw = cashDeny -> DoWithdraw
+            [] cashCollect -> SKIP
+   within
+      withdraw -> DoWithdraw
