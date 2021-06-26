@@ -2,5 +2,4 @@ The <i>Bool setter</i>, an example inspired by [Hoa85], but in which there is an
 
 <b>References</b>
 
-<p>
 [Hoa85] Anthony Hoare. Communicating Sequential Processes. Prentice-Hall International. 1985.
