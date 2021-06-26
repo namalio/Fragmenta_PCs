@@ -1,0 +1,8 @@
+BusRider = 
+   let 
+      OnBus = getOff -> SKIP
+            [] move -> OnBus
+            [] stand -> OnBus
+            [] seat -> OnBus
+   within
+      getOn -> OnBus

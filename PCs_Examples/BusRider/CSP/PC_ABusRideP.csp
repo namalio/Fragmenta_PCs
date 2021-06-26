@@ -1,0 +1,1 @@
+ABusRide = getOn -> move -> seat -> move -> getOff -> SKIP
