@@ -1,4 +1,4 @@
-The <i>Bool setter</i>, an example inspired by [Hoa85], but in which there is an initial value assignment of <i>False</i>.
+The <i>Bool setter</i>, an example inspired by [Hoa85], but in which there is an initial value assignment to <i>False</i>.
 
 <b>References</b>
 
