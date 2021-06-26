@@ -7,3 +7,4 @@ using a parallel composition operator which synchronises on events <i>deny</i>, 
 * <i>PC_CashMachineOps</i> describes the commencement of the cash machine operations. <i>CashMachineOps</i> expects the card to be inserted into the machine's slot, which starts the authentication procedure.
 * <i>PC_Authentication</i> describes authentication through a number of tries (parameter <i>n</i>).
 If there are no tries left, then event <i>deny</i> happens as authentication failed. If there are tries left then authentication may either be successful (<i>grant</i>) or simply <i>fail</i>, in which case a user may have another try, if there are tries left.
+* <i>PC_Withdraw</i> 
