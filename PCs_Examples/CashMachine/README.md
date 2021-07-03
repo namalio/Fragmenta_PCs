@@ -11,11 +11,9 @@ using a parallel composition operator which synchronises on events <i>deny</i>, 
 * <i>cancel</i> results in the graceful end of <i>CardControl</i>.
 * Event <i>cardIn</i> triggers process <i>DoCardIn</i>, which expects either a <i>deny</i>, which results in the card being swallowed as the customer failed all tries of authentication, or a <i>cancel</i> (a customer requested the end of the cash machine interaction), which results in the card being ejected; once the card is ejected, the customer may either collect it within the specified timeout or he may forget to collect the card, in which case the machine swallows the card for security reasons.
 
-<img src="PC_CashMachineOps.jpg" alt="PC_CashMachineOps">
+<img src="PC_CashMachineOps.jpg" alt="PC_CashMachineOps"> <img src="PC_Authentication.jpg" alt="PC_Authentication">
 
 <i>PC_CashMachineOps</i> describes the commencement of the cash machine operations. <i>CashMachineOps</i> expects the card to be inserted into the machine's slot, after which the authentication procedure is started.
-
-<img src="PC_Authentication.jpg" alt="PC_Authentication">
 
 <i>PC_Authentication</i> describes an authentication process with a number of tries (parameter <i>n</i>).
 If there are no tries left, then event <i>deny</i> happens as authentication failed. If there are tries left then authentication may either be successful (<i>grant</i>) or simply <i>fail</i>, in which case a user may have another try, if there are tries left.
