@@ -1,0 +1,6 @@
+UnnoticedAttack = 
+   let 
+      MoveStealEscape = EnterOrExit
+            [] (([] e : {intoHall,intoLivingRoom,intoKitchen,intoRoom,grabTV,grabLaptop,grabJewels} @ e -> SKIP); MoveStealEscape)
+   within
+      activateAlarm -> (EnterOrExit; MoveStealEscape)

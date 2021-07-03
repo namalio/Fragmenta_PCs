@@ -1,0 +1,17 @@
+CardReader = 
+   let 
+      DoCardReader = 
+         let 
+            CardReaderEject = 
+               let 
+                  CardReaderTimeout = collectTimeout2 -> swallowCard -> SKIP
+                        [] cardCollect -> SKIP
+               within
+                  collectTimeout1 -> CardReaderTimeout
+                     [] cardCollect -> SKIP
+         within
+            readCard -> DoCardReader
+               [] swallowCard -> SKIP
+               [] ejectCard -> CardReaderEject
+   within
+      cardIn -> (DoCardReader; CardReader)

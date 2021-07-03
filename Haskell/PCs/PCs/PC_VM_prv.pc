@@ -1,0 +1,9 @@
+PC PC_VM_prv@VM
+compound VM
+atom coin
+atom choc
+reference RefVM
+def_connector DefVMC::VM->coin
+after_connector AfterCoinC::coin->choc
+after_connector AfterChocC::choc->RefVM
+ref_connector RefVMC::RefVM->VM

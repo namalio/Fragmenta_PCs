@@ -1,0 +1,8 @@
+Morphism F_MM_3 {
+	nodes {
+		YesNo->Attribute
+		Yes->Attribute
+		No->Attribute
+	}
+	edges {}
+}

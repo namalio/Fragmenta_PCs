@@ -1,0 +1,31 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_SimpleLife];
+RefTimer [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="Timer,2, "];
+stopLife [shape=box,fillcolor=mistyrose2,style = filled,label="STOP"];
+RefLive [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+die [shape=ellipse,fillcolor=greenyellow,style = filled,label="die"];
+rest [shape=ellipse,fillcolor=greenyellow,style = filled,label="rest"];
+move [shape=ellipse,fillcolor=greenyellow,style = filled,label="move"];
+eat [shape=ellipse,fillcolor=greenyellow,style = filled,label="eat"];
+OpLive [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+Live [shape=box,fillcolor=deepskyblue,style = filled,label="Live "];
+PC_Timer [shape=hexagon,fillcolor=orangered,style=filled,label =PC_Timer];
+
+{rank=min;StartN_,Live}
+{rank=same;die,stopLife}
+{rank=same;rest,RefTimer}
+
+RefTimer->RefLive[arrowtail=dot,dir=both,label="after"];
+RefTimer->PC_Timer[arrowhead="normalnormal",label=" "];
+rest->RefTimer[arrowtail=dot,dir=both,label="after"];
+die->stopLife[arrowtail=dot,dir=both,label="after"];
+RefLive->Live[arrowhead="normalnormal",label=" "];
+move->RefLive[arrowtail=dot,dir=both,label="after"];
+eat->RefLive[arrowtail=dot,dir=both,label="after"];
+OpLive->die[arrowhead="vee",fillcolor=white];
+OpLive->rest[arrowhead="vee",fillcolor=white];
+OpLive->move[arrowhead="vee",fillcolor=white];
+OpLive->eat[arrowhead="vee",fillcolor=white];
+StartN_->Live[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+Live->OpLive[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

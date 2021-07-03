@@ -1,0 +1,23 @@
+PC PC_HouseUnderAttack_Snatch@Snatch
+atom mainDoor
+atom roomWindow
+operator OpEnterOrExit.OpChoice
+compound EnterOrExit@OpEnterOrExit
+op_connector OpEnterOrExit->mainDoor
+op_connector OpEnterOrExit->roomWindow
+reference RefEnterOrExit
+ref_connector RefEnterOrExit->EnterOrExit
+compound Snatch@RefEnterOrExit
+after_connector RefEnterOrExit->RefSnatchControl
+operator OpSnatch.OpChoice
+compound SnatchControl.ges@OpSnatch
+reference RefSnatchControl
+ref_connector RefSnatchControl->SnatchControl.{grabTV,grabLaptop,grabJewels}
+atom snatch<e:ges>
+op_connector OpSnatch->snatch
+reference RefSnatchControl2
+ref_connector RefSnatchControl2->SnatchControl.diff(ges, {e})
+after_connector open snatch->RefSnatchControl2
+op_connector OpSnatch->RefEnterOrExit2
+reference RefEnterOrExit2
+ref_connector RefEnterOrExit2->EnterOrExit

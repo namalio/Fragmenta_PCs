@@ -1,0 +1,22 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_SuccessfulHouseAttack];
+roomWindow2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+grabLaptop [shape=ellipse,fillcolor=greenyellow,style = filled,label="grabLaptop"];
+grabJewels [shape=ellipse,fillcolor=greenyellow,style = filled,label="grabJewels"];
+intoRoom [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoRoom"];
+SuccessfulHouseAttack [shape=box,fillcolor=deepskyblue,style = filled,label="SuccessfulHouseAttack "];
+roomWindow [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+
+{rank=min;StartN_,SuccessfulHouseAttack}
+{rank=same;roomWindow,intoRoom,grabJewels,grabLaptop,roomWindow2}
+{rank=same;intoRoom,grabJewels,grabLaptop,roomWindow2}
+{rank=same;grabJewels,grabLaptop,roomWindow2}
+{rank=same;grabLaptop,roomWindow2}
+
+grabLaptop->roomWindow2[arrowtail=dot,dir=both,label="after"];
+grabJewels->grabLaptop[arrowtail=dot,dir=both,label="after"];
+intoRoom->grabJewels[arrowtail=dot,dir=both,label="after"];
+roomWindow->intoRoom[arrowtail=dot,dir=both,label="after"];
+StartN_->SuccessfulHouseAttack[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+SuccessfulHouseAttack->roomWindow[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

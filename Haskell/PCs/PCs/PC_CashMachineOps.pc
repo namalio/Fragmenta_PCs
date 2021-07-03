@@ -1,0 +1,7 @@
+PC PC_CashMachineOps@CashMachineOps
+import PC_Authentication
+compound CashMachineOps@cardIn
+atom cardIn
+after_connector cardIn->RefAuthenticate
+reference RefAuthenticate.Authenticate;3
+ref_connector RefAuthenticate->PC_Authentication

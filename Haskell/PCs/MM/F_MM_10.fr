@@ -1,0 +1,20 @@
+fragment F_MM_10 {
+  SG SG_MM_10 {
+    node ReferenceC
+    proxy PConnector3
+    proxy PParameterised3
+    proxy PReference
+    proxy PTargetOfRef
+    proxy PYesNo3
+    inh ReferenceC->PConnector3
+    inh ReferenceC->PParameterised3
+    rel ReferenceC->PReference[ReferenceCSrc]:1,1
+    relu ReferenceC->PTargetOfRef[ReferenceCTgt]:1
+    relu ReferenceC->PYesNo3[ReferenceC_hidden]
+  }
+  ref PConnector3->Connector
+  ref PParameterised3->Parameterised
+  ref PTargetOfRef->TargetOfRef
+  ref PReference->Reference
+  ref PYesNo3->YesNo
+}

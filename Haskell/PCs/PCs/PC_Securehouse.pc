@@ -1,0 +1,49 @@
+PC PC_SecureHouse@SecureHouse
+reference inner RefSecureHouse0
+compound SecureHouse.eees,mes,ses@RefSecureHouse0
+operator OpSecureHouse0.OpChoice
+compound SecureHouse0.active,inside,stolen,raised@OpSecureHouse0
+ref_connector RefSecureHouse0->SecureHouse0.False,False,False,False
+operator OpAlarmSwitch.OpChoice
+compound AlarmSwitch@OpAlarmSwitch
+atom activateAlarm{not active}
+atom disableAlarm{active}
+op_connector OpAlarmSwitch->activateAlarm
+op_connector OpAlarmSwitch->disableAlarm
+reference RefSecureHouseAfterActivate
+ref_connector RefSecureHouseAfterActivate->SecureHouse0.True,inside,stolen,False
+reference RefSecureHouseAfterDeactivate
+ref_connector RefSecureHouseAfterDeactivate->SecureHouse0.False,inside,stolen,False
+after_connector activateAlarm->RefSecureHouseAfterActivate
+after_connector disableAlarm->RefSecureHouseAfterDeactivate
+op_connector OpSecureHouse0->AlarmSwitch
+operator OpInside.OpChoice
+compound Inside@OpInside
+atom steal<:ses>
+op_connector OpInside->steal
+reference RefSecureHouseStolen
+ref_connector RefSecureHouseStolen->SecureHouse0.active,inside,True,raised
+after_connector steal->RefSecureHouseStolen
+atom move<:mes>
+op_connector OpInside->move
+reference RefSecureHouseSame
+ref_connector RefSecureHouseSame->SecureHouse0.active,inside,stolen,raised
+after_connector move->RefSecureHouseSame
+atom alarmSounds{active}
+op_connector OpInside->alarmSounds
+reference RefSecureHouseAlarm
+ref_connector RefSecureHouseAlarm->SecureHouse0.active,inside,stolen,True
+after_connector alarmSounds->RefSecureHouseAlarm
+reference inner RefInside{inside}
+ref_connector RefInside->Inside
+op_connector OpSecureHouse0->RefInside
+atom enter<:eees>{not inside}
+op_connector OpSecureHouse0->enter
+reference RefSecureHouse01
+ref_connector RefSecureHouse01->SecureHouse0.active,True,False,False
+after_connector enter->RefSecureHouse01
+atom exit<:eees>{not active or (active and (not stolen or (stolen and raised)))}
+op_connector OpInside->exit
+reference RefSecureHouse
+ref_connector RefSecureHouse->SecureHouse.eees,mes,ses
+after_connector SecureHouse->RefSecureHouse

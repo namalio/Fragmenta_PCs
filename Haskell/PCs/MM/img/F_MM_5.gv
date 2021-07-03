@@ -1,0 +1,25 @@
+digraph {graph[label=F_MM_5,labelloc=tl,labelfontsize=12];
+subgraph cluster_F_MM_5{style=dashed;label=F_MM_5;
+"PNode"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Node<br/>(P)>];
+"PParameterised"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Parameterised<br/>(P)>];
+"Stop"[shape=record,fillcolor=lightskyblue1,style = filled,label="Stop"];
+"Skip"[shape=record,fillcolor=lightskyblue1,style = filled,label="Skip"];
+"PAction"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Action<br/>(P)>];
+"Operator"[shape=record,fillcolor=lightskyblue1,style = filled,label="Operator"];
+"POperatorVal"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<OperatorVal<br/>(P)>];
+
+"Stop"->"PNode"[arrowhead=onormal,arrowsize=2.0];
+"Skip"->"PNode"[arrowhead=onormal,arrowsize=2.0];
+"Operator"->"PNode"[arrowhead=onormal,arrowsize=2.0];
+"Operator"->"PParameterised"[arrowhead=onormal,arrowsize=2.0];
+"Stop"->"PAction"[arrowhead=onormal,arrowsize=2.0];
+"Skip"->"PAction"[arrowhead=onormal,arrowsize=2.0];
+"Operator"->"PAction"[arrowhead=onormal,arrowsize=2.0];
+"Operator"->"POperatorVal"[label="Operator_op▼",arrowhead=vee,headlabel="",arrowsize=.5];
+
+}
+
+
+
+
+}

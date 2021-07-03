@@ -1,0 +1,12 @@
+Doas = 
+   let 
+      Dobs = 
+         let 
+            Docs = nil -> SKIP
+                  [] c -> Docs
+         within
+            Docs
+               [] b -> Dobs
+   within
+      Dobs
+         [] a -> Doas

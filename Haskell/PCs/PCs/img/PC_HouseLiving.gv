@@ -1,0 +1,53 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_HouseLiving];
+OpHouseLiving [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+mainDoor [shape=ellipse,fillcolor=greenyellow,style = filled,label="mainDoor"];
+intoHall [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoHall"];
+EnterRoom [shape=box,fillcolor=deepskyblue,style = filled,label="EnterRoom "];
+OpInsideRoom [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+intoLivingRoom [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoLivingRoom"];
+mainDoor2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="mainDoor"];
+RefEnterHall2 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="EnterHall "];
+roomWindow2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+RefHouseLiving [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="HouseLiving "];
+RefEnterRoom [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="EnterRoom "];
+RefEnterHall [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="EnterHall "];
+intoKitchen [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoKitchen"];
+intoRoom [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoRoom"];
+OpEnterHall [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+EnterHall [shape=box,fillcolor=deepskyblue,style = filled,label="EnterHall "];
+roomWindow [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+HouseLiving [shape=box,fillcolor=deepskyblue,style = filled,label="HouseLiving "];
+
+{rank=min;StartN_,HouseLiving}
+{rank=same;mainDoor,EnterHall}
+{rank=same;roomWindow,EnterRoom}
+{rank=same;intoHall,OpEnterHall}
+{rank=same;intoRoom,OpInsideRoom}
+{rank=same;roomWindow2,RefHouseLiving}
+
+roomWindow2->RefHouseLiving[arrowtail=dot,dir=both,label="after"];
+
+OpInsideRoom->roomWindow2[arrowhead="vee",fillcolor=white,label=""];
+OpInsideRoom->RefEnterHall2[arrowhead="vee",fillcolor=white,label=""];
+intoRoom->OpInsideRoom[arrowtail=dot,dir=both,label="after"];
+OpEnterHall->RefEnterRoom[arrowhead="vee",fillcolor=white,label=""];
+mainDoor2->HouseLiving[arrowtail=dot,dir=both,label="after"];
+intoKitchen->RefEnterHall[arrowtail=dot,dir=both,label="after"];
+intoLivingRoom->RefEnterHall[arrowtail=dot,dir=both,label="after"];
+
+
+
+OpEnterHall->mainDoor2[arrowhead="vee",fillcolor=white,label=""];
+OpEnterHall->intoKitchen[arrowhead="vee",fillcolor=white,label=""];
+OpEnterHall->intoLivingRoom[arrowhead="vee",fillcolor=white,label=""];
+intoHall->OpEnterHall[arrowtail=dot,dir=both,label="after"];
+roomWindow->EnterRoom[arrowtail=dot,dir=both,label="after"];
+mainDoor->EnterHall[arrowtail=dot,dir=both,label="after"];
+OpHouseLiving->roomWindow[arrowhead="vee",fillcolor=white,label=""];
+OpHouseLiving->mainDoor[arrowhead="vee",fillcolor=white,label=""];
+StartN_->HouseLiving[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+EnterRoom->intoRoom[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+EnterHall->intoHall[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+HouseLiving->OpHouseLiving[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

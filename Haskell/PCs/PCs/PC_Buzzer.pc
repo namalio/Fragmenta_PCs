@@ -1,0 +1,10 @@
+PC PC_Buzzer@Buzzer
+import PC_Timer
+compound Buzzer@Muted
+atom buzz
+compound Muted@buzz
+compound Buzzing@RefTimer
+reference RefTimer.Timer;3[timeout/mute]
+ref_connector RefTimer->PC_Timer
+after_connector buzz->Buzzing
+after_connector Buzzing->Muted

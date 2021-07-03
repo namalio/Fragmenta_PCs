@@ -1,0 +1,9 @@
+include "PC_CM_OkWithdrawP.csp"
+include "PC_CM_OkWithdraw_base.csp"
+
+include "PC_CashMachineP.csp"
+include "PC_AuthenticationP.csp"
+include "PC_WithdrawP.csp"
+include "PC_ShowBalanceP.csp"
+include "PC_CashMachineOpsP.csp"
+include "PC_CardControlP.csp"

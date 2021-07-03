@@ -1,0 +1,39 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_CardControl];
+cardSwallow2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardSwallow"];
+cardSwallow [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardSwallow"];
+cCollectTimeout [shape=ellipse,fillcolor=greenyellow,style = filled,label="cCollectTimeout"];
+cCollect [shape=ellipse,fillcolor=greenyellow,style = filled,label="cCollect"];
+OpAfterEject [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+cardEject [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardEject"];
+deny [shape=ellipse,fillcolor=greenyellow,style = filled,label="deny"];
+OpDoCardIn [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+DoCardIn [shape=box,fillcolor=deepskyblue,style = filled,label="DoCardIn "];
+cancel2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="cancel"];
+cardIn [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardIn"];
+cancel [shape=ellipse,fillcolor=greenyellow,style = filled,label="cancel"];
+CardControl [shape=box,fillcolor=deepskyblue,style = filled,label="CardControl "];
+OpCardControl [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+
+{rank=min;StartN_,CardControl}
+{rank=same;cardIn,DoCardIn}
+{rank=same;cancel2,cardEject,OpAfterEject}
+{rank=same;cardEject,OpAfterEject}
+{rank=same;cCollectTimeout,cardSwallow}
+{rank=same;deny,cardSwallow2}
+
+deny->cardSwallow2[arrowtail=dot,dir=both,label="after"];
+cCollectTimeout->cardSwallow[arrowtail=dot,dir=both,label="after"];
+OpAfterEject->cCollectTimeout[arrowhead="vee",fillcolor=white];
+OpAfterEject->cCollect[arrowhead="vee",fillcolor=white];
+cardEject->OpAfterEject[arrowtail=dot,dir=both,label="after"];
+cancel2->cardEject[arrowtail=dot,dir=both,label="after"];
+OpDoCardIn->deny[arrowhead="vee",fillcolor=white];
+OpDoCardIn->cancel2[arrowhead="vee",fillcolor=white];
+cardIn->DoCardIn[arrowtail=dot,dir=both,label="after"];
+OpCardControl->cardIn[arrowhead="vee",fillcolor=white];
+OpCardControl->cancel[arrowhead="vee",fillcolor=white];
+StartN_->CardControl[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+DoCardIn->OpDoCardIn[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+CardControl->OpCardControl[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

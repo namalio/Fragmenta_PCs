@@ -1,0 +1,21 @@
+fragment F_MM_9 {
+  SG SG_MM_9 {
+    proxy PConnector2
+    node AfterC
+    node DefinesC
+    proxy PAction3
+    proxy PCompound2
+    proxy PYesNo2
+    inh AfterC->PConnector2
+    inh DefinesC->PConnector2
+    relu AfterC->PAction3[AfterCSrc]
+    relu AfterC->PAction3[AfterCTgt]
+    relu DefinesC->PAction3[DefinesCTgt]
+    relu DefinesC->PCompound2[DefinesCSrc]
+    relu AfterC->PYesNo2[AfterC_copen]
+  }
+  ref PConnector2->Connector
+  ref PAction3->Action
+  ref PCompound2->Compound
+  ref PYesNo2->YesNo
+}

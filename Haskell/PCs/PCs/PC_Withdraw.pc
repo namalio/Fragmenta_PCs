@@ -1,0 +1,13 @@
+PC PC_Withdraw@Withdraw
+compound Withdraw@optWithdraw
+atom optWithdraw
+compound DoWithdraw@withdraw
+after_connector optWithdraw->DoWithdraw
+atom withdraw
+after_connector withdraw->OpDoWithdraw
+operator OpDoWithdraw.OpIntChoice
+atom cashDeny
+atom cashDispense
+op_connector OpDoWithdraw->cashDispense
+op_connector OpDoWithdraw->cashDeny
+after_connector cashDeny->DoWithdraw

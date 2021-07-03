@@ -1,0 +1,8 @@
+Bool = assignF -> BoolF
+      [] assignT -> BoolT
+
+BoolF = Bool
+      [] getF -> BoolF
+
+BoolT = Bool
+      [] getT -> BoolT

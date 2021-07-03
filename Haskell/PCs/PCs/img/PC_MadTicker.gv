@@ -1,0 +1,21 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_MadTicker];
+OpCT2 [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+STOP [shape=box,fillcolor=mistyrose2,style = filled,label="STOP"];
+toque [shape=ellipse,fillcolor=greenyellow,style = filled,label="toque"];
+tique [shape=ellipse,fillcolor=greenyellow,style = filled,label="tique"];
+taque [shape=ellipse,fillcolor=greenyellow,style = filled,label="taque"];
+OpCT [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+MadTicker [shape=box,fillcolor=deepskyblue,style = filled,label="MadTicker "];
+
+{rank=min;StartN_,MadTicker}
+{rank=same;taque,STOP}
+
+OpCT2->toque[arrowhead="vee",fillcolor=white];
+OpCT2->tique[arrowhead="vee",fillcolor=white];
+taque->STOP[arrowtail=dot,dir=both,label="after"];
+OpCT->taque[arrowhead="vee",fillcolor=white];
+OpCT->OpCT2[arrowhead="vee",fillcolor=white];
+StartN_->MadTicker[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+MadTicker->OpCT[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

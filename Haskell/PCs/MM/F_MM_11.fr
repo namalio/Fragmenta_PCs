@@ -1,0 +1,23 @@
+fragment F_MM_11 {
+  SG SG_MM_11 {
+    proxy PConnector4
+    proxy POperator2
+    proxy PAction4
+    proxy PGuarded2
+    node BMainIfC
+    node BElseC
+    node BJumpC
+    node BranchC
+    inh BMainIfC->BranchC
+    inh BMainIfC->PGuarded2
+    inh BElseC->BranchC
+    inh BJumpC->BranchC
+    inh BranchC->PConnector4
+    relu BranchC->POperator2[BranchCSrc]
+    relu BranchC->PAction4[BranchCTgt]
+  }
+  ref PConnector4->Connector
+  ref POperator2->Operator
+  ref PAction4->Action
+  ref PGuarded2->Guarded
+}

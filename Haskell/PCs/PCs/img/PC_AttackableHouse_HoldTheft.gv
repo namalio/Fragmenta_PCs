@@ -1,0 +1,32 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_AttackableHouse_HoldTheft];
+RefHoldTheft02 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+grab [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>any</I> e:ges<br/>[grab]>];
+RefHoldTheft0 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+HoldTheft0 [shape=box,fillcolor=deepskyblue,style = filled,label="HoldTheft0 (ges)"];
+OpHoldTheft [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+roomWindow [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+mainDoor [shape=ellipse,fillcolor=greenyellow,style = filled,label="mainDoor"];
+EnterOrExit [shape=box,fillcolor=deepskyblue,style = filled,label="EnterOrExit "];
+OpEnterOrExit [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+HoldTheft [shape=box,fillcolor=deepskyblue,style = filled,label="HoldTheft "];
+RefEnterOrExit [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+
+{rank=min;StartN_,HoldTheft}
+{rank=same;RefEnterOrExit,RefHoldTheft0}
+{rank=same;grab,RefHoldTheft02}
+
+OpHoldTheft->EnterOrExit[arrowhead="vee",fillcolor=white,label=""];
+grab->RefHoldTheft02[arrowtail=odot,dir=both,label="after"];
+RefHoldTheft02->HoldTheft0[arrowhead="normalnormal",label=" (diff(ges, {e}))"];
+OpHoldTheft->grab[arrowhead="vee",fillcolor=white,label=""];
+RefHoldTheft0->HoldTheft0[arrowhead="normalnormal",label=" ({grabTV,grabLaptop,grabJewels})"];
+RefEnterOrExit->RefHoldTheft0[arrowtail=dot,dir=both,label="after"];
+OpEnterOrExit->roomWindow[arrowhead="vee",fillcolor=white,label=""];
+OpEnterOrExit->mainDoor[arrowhead="vee",fillcolor=white,label=""];
+RefEnterOrExit->EnterOrExit[arrowhead="normalnormal",label=" "];
+StartN_->HoldTheft[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+HoldTheft0->OpHoldTheft[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+EnterOrExit->OpEnterOrExit[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+HoldTheft->RefEnterOrExit[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

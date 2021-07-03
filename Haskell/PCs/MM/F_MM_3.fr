@@ -1,0 +1,5 @@
+fragment F_MM_3 {
+  SG SG_MM_3 {
+    enum YesNo: Yes, No
+  }
+}

@@ -1,0 +1,16 @@
+Morphism F_MM_1 {
+	nodes {
+	   PCDef->PCDef
+     Node->Node
+	   Connector->Connector
+		 NamedNode->Node
+		 StartN->Node
+		 Name->Attribute
+	}
+	edges {
+	   NamedNode_name->Has
+		 ContainsNs->Contains
+		 ContainsCs->Contains
+		 Starts->Starts
+	}
+}

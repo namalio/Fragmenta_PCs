@@ -1,0 +1,14 @@
+PC PC_Timer@Timer
+compound Timer.t@OpTimer
+operator OpTimer.OpIf
+operator OpIfChoice.OpChoice
+stop STOP
+op_connector_g OpTimer->OpIfChoice{t>=0}
+op_else_connector OpTimer->STOP
+atom timeout{t==0}
+atom tock{t>0}
+op_connector OpIfChoice->timeout
+op_connector OpIfChoice->tock
+reference RefTimer
+after_connector tock->RefTimer
+ref_connector RefTimer->Timer.t-1

@@ -1,0 +1,45 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_OrderGoods];
+CloseOrder [shape=box,fillcolor=deepskyblue,style = filled,label="CloseOrder "];
+closeOrder [shape=ellipse,fillcolor=greenyellow,style = filled,label="closeOrder"];
+receivePayment [shape=ellipse,fillcolor=greenyellow,style = filled,label="receivePayment"];
+regular [shape=ellipse,fillcolor=greenyellow,style = filled,label="regular"];
+express [shape=ellipse,fillcolor=greenyellow,style = filled,label="express"];
+Delivery [shape=box,fillcolor=deepskyblue,style = filled,label="Delivery "];
+OpDelivery [shape=diamond,fillcolor=yellow,style = filled,label="⊓"];
+sendInvoice [shape=ellipse,fillcolor=greenyellow,style = filled,label="sendInvoice"];
+fillOrder [shape=ellipse,fillcolor=greenyellow,style = filled,label="fillOrder"];
+DoOrder [shape=box,fillcolor=deepskyblue,style = filled,label="DoOrder "];
+OpDoOrder [shape=diamond,fillcolor=yellow,style = filled,label="|||"];
+orderRejected [shape=ellipse,fillcolor=greenyellow,style = filled,label="orderRejected"];
+orderAccepted [shape=ellipse,fillcolor=greenyellow,style = filled,label="orderAccepted"];
+OpAfterReceiveOrder [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+OrderGoods [shape=box,fillcolor=deepskyblue,style = filled,label="OrderGoods "];
+receiveOrder [shape=ellipse,fillcolor=greenyellow,style = filled,label="receiveOrder"];
+
+{rank=min;StartN_,OrderGoods}
+{rank=same;receiveOrder,OpAfterReceiveOrder}
+{rank=same;orderAccepted,DoOrder,CloseOrder}
+{rank=same;fillOrder,Delivery}
+{rank=same;sendInvoice,receivePayment}
+{rank=same;DoOrder,CloseOrder}
+{rank=same;orderRejected,CloseOrder}
+
+orderRejected->CloseOrder[arrowtail=dot,dir=both,label="after"];
+DoOrder->CloseOrder[arrowtail=dot,dir=both,label="after"];
+sendInvoice->receivePayment[arrowtail=dot,dir=both,label="after"];
+OpDelivery->regular[arrowhead="vee",fillcolor=white];
+OpDelivery->express[arrowhead="vee",fillcolor=white];
+fillOrder->Delivery[arrowtail=dot,dir=both,label="after"];
+OpDoOrder->sendInvoice[arrowhead="vee",fillcolor=white];
+OpDoOrder->fillOrder[arrowhead="vee",fillcolor=white];
+orderAccepted->DoOrder[arrowtail=dot,dir=both,label="after"];
+OpAfterReceiveOrder->orderRejected[arrowhead="vee",fillcolor=white];
+OpAfterReceiveOrder->orderAccepted[arrowhead="vee",fillcolor=white];
+receiveOrder->OpAfterReceiveOrder[arrowtail=dot,dir=both,label="after"];
+StartN_->OrderGoods[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+CloseOrder->closeOrder[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Delivery->OpDelivery[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+DoOrder->OpDoOrder[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+OrderGoods->receiveOrder[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

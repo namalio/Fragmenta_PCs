@@ -1,0 +1,23 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_Withdraw];
+cashDispense [shape=ellipse,fillcolor=greenyellow,style = filled,label="cashDispense"];
+cashDeny [shape=ellipse,fillcolor=greenyellow,style = filled,label="cashDeny"];
+OpDoWithdraw [shape=diamond,fillcolor=yellow,style = filled,label="⊓"];
+withdraw [shape=ellipse,fillcolor=greenyellow,style = filled,label="withdraw"];
+DoWithdraw [shape=box,fillcolor=deepskyblue,style = filled,label="DoWithdraw "];
+optWithdraw [shape=ellipse,fillcolor=greenyellow,style = filled,label="optWithdraw"];
+Withdraw [shape=box,fillcolor=deepskyblue,style = filled,label="Withdraw "];
+
+{rank=min;StartN_,Withdraw}
+{rank=same;optWithdraw,DoWithdraw}
+{rank=same;withdraw,OpDoWithdraw}
+
+cashDeny->DoWithdraw[arrowtail=dot,dir=both,label="after"];
+OpDoWithdraw->cashDeny[arrowhead="vee",fillcolor=white];
+OpDoWithdraw->cashDispense[arrowhead="vee",fillcolor=white];
+withdraw->OpDoWithdraw[arrowtail=dot,dir=both,label="after"];
+optWithdraw->DoWithdraw[arrowtail=dot,dir=both,label="after"];
+StartN_->Withdraw[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+DoWithdraw->withdraw[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Withdraw->optWithdraw[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

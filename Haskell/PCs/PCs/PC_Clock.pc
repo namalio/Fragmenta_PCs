@@ -1,0 +1,4 @@
+PC PC_Clock@Clock
+compound Clock@tick
+atom tick
+after_connector tick->Clock

@@ -1,0 +1,12 @@
+Morphism F_MM_6 {
+	nodes {
+		OperatorVal->Attribute
+		OpChoice->Attribute
+		OpIntChoice->Attribute
+		OpParallel->Attribute
+		OpIf->Attribute
+		OpInterleave->Attribute
+		OpThrow->Attribute
+	}
+	edges {}
+}

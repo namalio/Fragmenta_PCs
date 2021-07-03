@@ -1,0 +1,3 @@
+include "PC_CM_AuthenticationFail.csp"
+
+assert CashMachine [T= CMAF

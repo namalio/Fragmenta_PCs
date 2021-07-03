@@ -1,0 +1,20 @@
+SecureHouse(eees,mes,ses) = 
+   let 
+      SecureHouse0 = 
+         let 
+            SecureHouse0(active,inside,stolen,raised) = 
+               let 
+                  Inside = (not active or (active and (not stolen or (stolen and raised))) & ([] e : eees @ e -> SKIP); SKIP)
+                        [] active & alarmSounds -> SecureHouse0(active,inside,stolen,True)
+                        [] (([] e : mes @ e -> SKIP); SecureHouse0(active,inside,stolen,raised))
+                        [] (([] e : ses @ e -> SKIP); SecureHouse0(active,inside,True,raised))
+                  AlarmSwitch = active & disableAlarm -> SecureHouse0(False,inside,stolen,False)
+                        [] not active & activateAlarm -> SecureHouse0(True,inside,stolen,False)
+               within
+                  (not inside & ([] e : eees @ e -> SKIP); SecureHouse0(active,True,False,False))
+                     [] inside & Inside
+                     [] AlarmSwitch
+         within
+            SecureHouse0(False,False,False,False)
+   within
+      SecureHouse0; SecureHouse(eees,mes,ses)

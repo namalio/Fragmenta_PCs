@@ -1,0 +1,22 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_Authentication];
+RefAuthenticate [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+fail [shape=ellipse,fillcolor=greenyellow,style = filled,label="fail"];
+grant [shape=ellipse,fillcolor=greenyellow,style = filled,label="grant"];
+deny [shape=ellipse,fillcolor=greenyellow,style = filled,label="deny"];
+OpAuthenticateChoice [shape=diamond,fillcolor=yellow,style = filled,label="⊓"];
+OpAuthenticate [shape=diamond,fillcolor=yellow,style = filled,label="If"];
+Authenticate [shape=box,fillcolor=deepskyblue,style = filled,label="Authenticate (n)"];
+
+{rank=min;StartN_,Authenticate}
+{rank=same;fail,RefAuthenticate}
+
+RefAuthenticate->Authenticate[arrowhead="normalnormal",label=" (n-1)"];
+fail->RefAuthenticate[arrowtail=dot,dir=both,label="after"];
+OpAuthenticateChoice->fail[arrowhead="vee",fillcolor=white];
+OpAuthenticateChoice->grant[arrowhead="vee",fillcolor=white];
+OpAuthenticate->deny[arrowhead="vee",label="Else"];
+OpAuthenticate->OpAuthenticateChoice[arrowhead="vee",fillcolor=white,label="n>0"];
+StartN_->Authenticate[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+Authenticate->OpAuthenticate[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

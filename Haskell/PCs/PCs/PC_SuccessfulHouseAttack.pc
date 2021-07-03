@@ -1,0 +1,11 @@
+PC PC_SuccessfulHouseAttack@SuccessfulHouseAttack
+atom roomWindow
+compound SuccessfulHouseAttack@roomWindow
+atom intoRoom
+after_connector roomWindow->intoRoom
+atom grabJewels
+atom grabLaptop
+after_connector intoRoom->grabJewels
+after_connector grabJewels->grabLaptop
+atom roomWindow2.roomWindow
+after_connector grabLaptop->roomWindow2

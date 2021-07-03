@@ -1,0 +1,26 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_ProtectedHouse_HouseAlarm];
+alarmSounds [shape=ellipse,fillcolor=greenyellow,style = filled,label="alarmSounds"];
+exit [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>anyof</I> ges<br/>[exit]>];
+pass [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>anyof</I> pes<br/>[pass]>];
+raise [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>anyof</I> aes<br/>[raise]>];
+WatchOut [shape=box,fillcolor=deepskyblue,style = filled,label="WatchOut "];
+OpWatchOut [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+entry [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>anyof</I> ges<br/>[entry]>];
+HouseAlarm [shape=box,fillcolor=deepskyblue,style = filled,label="HouseAlarm (aes,ges,pes)"];
+
+{rank=min;StartN_,HouseAlarm}
+{rank=same;entry,WatchOut}
+{rank=same;raise,alarmSounds}
+
+pass->WatchOut[arrowtail=dot,dir=both,label="after"];
+alarmSounds->WatchOut[arrowtail=dot,dir=both,label="after"];
+raise->alarmSounds[arrowtail=dot,dir=both,label="after"];
+OpWatchOut->exit[arrowhead="vee",fillcolor=white];
+OpWatchOut->pass[arrowhead="vee",fillcolor=white];
+OpWatchOut->raise[arrowhead="vee",fillcolor=white];
+entry->WatchOut[arrowtail=dot,dir=both,label="after"];
+StartN_->HouseAlarm[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+WatchOut->OpWatchOut[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+HouseAlarm->entry[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

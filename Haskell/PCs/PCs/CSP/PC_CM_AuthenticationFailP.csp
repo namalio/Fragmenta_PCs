@@ -1,0 +1,1 @@
+CMAF = cardIn -> fail -> fail -> fail -> deny -> cardSwallow -> CashMachine

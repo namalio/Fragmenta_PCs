@@ -1,0 +1,22 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_POS];
+RefPOS2 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+RefPOS [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+up [shape=ellipse,fillcolor=greenyellow,style = filled,label="up"];
+down [shape=ellipse,fillcolor=greenyellow,style = filled,label="down"];
+OpPos [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+POS [shape=box,fillcolor=deepskyblue,style = filled,label="POS "];
+
+{rank=min;StartN_,POS}
+{rank=same;up,RefPOS,RefPOS2}
+{rank=same;RefPOS,RefPOS2}
+
+RefPOS->RefPOS2[arrowtail=dot,dir=both,label="after"];
+up->RefPOS[arrowtail=dot,dir=both,label="after"];
+RefPOS2->POS[arrowhead="normalnormal",label=" "];
+RefPOS->POS[arrowhead="normalnormal",label=" "];
+OpPos->up[arrowhead="vee",fillcolor=white];
+OpPos->down[arrowhead="vee",fillcolor=white];
+StartN_->POS[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+POS->OpPos[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

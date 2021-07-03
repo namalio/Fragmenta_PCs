@@ -1,0 +1,27 @@
+digraph {graph[label=F_MM_7,labelloc=tl,labelfontsize=12];
+subgraph cluster_F_MM_7{style=dashed;label=F_MM_7;
+"PNode2"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Node2<br/>(P)>];
+"PParameterised2"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Parameterised2<br/>(P)>];
+"PAction2"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Action2<br/>(P)>];
+"PGuarded"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Guarded<br/>(P)>];
+"PName"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Name<br/>(P)>];
+"PYesNo"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<YesNo<br/>(P)>];
+"Reference"[shape=record,fillcolor=lightskyblue1,style = filled,label="Reference"];
+"Renaming"[shape=record,fillcolor=lightskyblue1,style = filled,label="Renaming"];
+
+"Reference"->"PNode2"[arrowhead=onormal,arrowsize=2.0];
+"Reference"->"PParameterised2"[arrowhead=onormal,arrowsize=2.0];
+"Reference"->"PAction2"[arrowhead=onormal,arrowsize=2.0];
+"Reference"->"PGuarded"[arrowhead=onormal,arrowsize=2.0];
+"Reference"->"PName"[label="Reference_name▼",arrowhead=vee,headlabel="0..1",arrowsize=.5];
+"Reference"->"PYesNo"[label="Reference_inner▼",arrowhead=vee,headlabel="",arrowsize=.5];
+"Reference"->"Renaming"[label="Renamings▼",dir=none,taillabel="",headlabel="*"];
+
+}
+
+
+
+
+
+
+}

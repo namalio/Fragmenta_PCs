@@ -1,0 +1,13 @@
+PC PC_GreetChat@GreetChat
+atom greet
+compound GreetChat@greet
+after_connector greet->ChatBye
+compound ChatBye@OpChat
+operator OpChat.OpChoice
+atom chat
+atom bye
+op_connector OpChat->chat
+op_connector OpChat->bye
+after_connector chat->ChatBye
+atom dismiss
+after_connector GreetChat->dismiss

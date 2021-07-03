@@ -1,0 +1,17 @@
+PC PC_CM_2FailsCancel@CM2FsC
+compound CM2FsC@cardIn
+atom cardIn
+atom fail
+atom fail2.fail
+atom cancel
+atom cardEject
+atom cCollect
+after_connector cardIn->fail
+after_connector fail->fail2
+after_connector fail2->cancel
+after_connector cancel->cardEject
+after_connector cardEject->cCollect
+reference RefCashMachine.CashMachine
+import PC_CashMachine
+ref_connector RefCashMachine->PC_CashMachine
+after_connector cCollect->RefCashMachine

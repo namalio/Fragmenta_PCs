@@ -1,0 +1,21 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_HouseUnderAttack];
+RefSnatch [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="Snatch "];
+PC_HouseUnderAttack_Snatch [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseUnderAttack_Snatch];
+RefRansack [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="Ransack "];
+PC_HouseUnderAttack_Ransack [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseUnderAttack_Ransack];
+HouseUnderAttack [shape=box,fillcolor=deepskyblue,style = filled,label="HouseUnderAttack "];
+OpHouseUnderAttack [shape=diamond,fillcolor=yellow,style = filled,label="||"];
+OpHouseUnderAttack_ps[shape=rect,fillcolor=yellow,style="filled,dotted",label="roomWindow,mainDoor,grabJewels,grabLaptop,grabTV"];
+OpHouseUnderAttack->OpHouseUnderAttack_ps [dir=none,color="black:invis:black"];
+{rank=same;OpHouseUnderAttack,OpHouseUnderAttack_ps}
+
+{rank=min;StartN_,HouseUnderAttack}
+
+OpHouseUnderAttack->RefSnatch[arrowhead="vee",fillcolor=white];
+RefSnatch->PC_HouseUnderAttack_Snatch[arrowhead="normalnormal",label=" "];
+OpHouseUnderAttack->RefRansack[arrowhead="vee",fillcolor=white];
+RefRansack->PC_HouseUnderAttack_Ransack[arrowhead="normalnormal",label=" "];
+StartN_->HouseUnderAttack[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+HouseUnderAttack->OpHouseUnderAttack[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

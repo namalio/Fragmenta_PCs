@@ -1,0 +1,9 @@
+
+
+HoldTheft = EnterOrExit; HoldTheft0({grabTV,grabLaptop,grabJewels})
+
+EnterOrExit = roomWindow -> SKIP
+      [] mainDoor -> SKIP
+
+HoldTheft0(ges) = EnterOrExit
+      [] ([] e : ges @ e -> HoldTheft0(diff(ges, {e})))

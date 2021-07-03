@@ -1,0 +1,7 @@
+BreakAndStealHouse = 
+   let 
+      GetInside = stolenKey -> SKIP
+            [] breakWindow -> SKIP
+            [] breakDoor -> SKIP
+   within
+      GetInside; stealTV -> SKIP

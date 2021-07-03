@@ -1,0 +1,11 @@
+PC PC_ProtectedHouse@ProtectedHouse
+operator OpProtectedHouse.OpParallel:intoHall,mainDoor,roomWindow,intoRoom,intoKitchen,intoLivingRoom,grabTV,grabJewels,grabLaptop
+compound ProtectedHouse@OpProtectedHouse
+reference RefHouseUnderAttack.HouseUnderAttack
+import PC_HouseUnderAttack
+ref_connector RefHouseUnderAttack->PC_HouseUnderAttack
+import PC_ProtectedHouse_HouseAlarm
+reference RefHouseAlarm.HouseAlarm({intoHall},{mainDoor,roomWindow},{intoRoom,intoKitchen,intoLivingRoom,grabTV,grabJewels,grabLaptop})
+ref_connector RefHouseAlarm->PC_ProtectedHouse_HouseAlarm
+op_connector OpProtectedHouse->RefHouseUnderAttack
+op_connector OpProtectedHouse->RefHouseAlarm

@@ -1,0 +1,25 @@
+PC PC_SecuredHouse@ThisSecuredHouse
+reference RefSecuredHouse
+ref_connector RefSecuredHouse->SecuredHouse.{mainDoor,roomWindow},{intoRoom,intoHall,intoLivingRoom,intoKitchen,grabTV,grabJewels,grabLaptop}
+compound ThisSecuredHouse@RefSecuredHouse
+atom enter<:ges>
+compound SecuredHouse.ges,res@enter
+operator OpRansack.OpIntChoice
+compound Ransack@OpRansack
+atom ransack<:res>
+op_connector OpRansack->ransack
+skip SKIP
+op_connector OpRansack->SKIP
+reference inner RefRansack
+ref_connector RefRansack->Ransack
+after_connector ransack->Ransack
+after_connector enter->RefRansack
+atom alarmSounds
+after_connector RefRansack->alarmSounds
+operator OpFinal.OpChoice
+reference RefRansack2
+ref_connector RefRansack2->Ransack
+op_connector OpFinal->RefRansack2
+atom leave<:ges>
+op_connector OpFinal->leave
+after_connector alarmSounds->OpFinal

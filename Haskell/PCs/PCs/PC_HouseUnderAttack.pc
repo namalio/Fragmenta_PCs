@@ -1,0 +1,11 @@
+PC PC_HouseUnderAttack@HouseUnderAttack
+operator OpHouseUnderAttack.OpParallel:grabTV;grabLaptop;grabJewels;mainDoor;roomWindow
+compound HouseUnderAttack@OpHouseUnderAttack
+import PC_HouseUnderAttack_Ransack
+reference RefRansack.Ransack
+ref_connector RefRansack->PC_HouseUnderAttack_Ransack
+op_connector OpHouseUnderAttack->RefRansack
+import PC_HouseUnderAttack_Snatch
+reference RefSnatch.Snatch
+ref_connector RefSnatch->PC_HouseUnderAttack_Snatch
+op_connector OpHouseUnderAttack->RefSnatch

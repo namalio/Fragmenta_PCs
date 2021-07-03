@@ -1,0 +1,11 @@
+digraph {graph[label=F_MM_3,labelloc=tl,labelfontsize=12];
+subgraph cluster_F_MM_3{style=dashed;label=F_MM_3;
+"YesNo"[shape=record,fillcolor="#FFCCFF",style = filled,label="YesNo\l(enum)"];
+"Yes"[shape=cds,fillcolor="#FFF2CC",style = filled,label="Yes"];
+"No"[shape=cds,fillcolor="#FFF2CC",style = filled,label="No"];
+
+"Yes"->"YesNo"[arrowhead=onormal,arrowsize=2.0];
+"No"->"YesNo"[arrowhead=onormal,arrowsize=2.0];
+
+}
+}

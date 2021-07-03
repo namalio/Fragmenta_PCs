@@ -1,0 +1,61 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_HouseUnderAttack_Ransack];
+RefIntoHall2 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="IntoHall "];
+roomWindow2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+snatch [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>anyof</I> {grabLaptop,grabJewels}<br/>[snatch]>];
+OpInRoom [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+InRoom [shape=box,fillcolor=deepskyblue,style = filled,label="InRoom "];
+intoRoom [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoRoom"];
+grabTV [shape=ellipse,fillcolor=greenyellow,style = filled,label="grabTV"];
+RefIntoHall [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="IntoHall "];
+InLivingRoom [shape=box,fillcolor=deepskyblue,style = filled,label="InLivingRoom "];
+OpInLivingRoom [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+mainDoor2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="mainDoor"];
+RefIntoRoom [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="IntoRoom "];
+intoKitchen [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoKitchen"];
+intoLivingRoom [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoLivingRoom"];
+OpInHall [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+IntoRoom [shape=box,fillcolor=deepskyblue,style = filled,label="IntoRoom "];
+IntoHall [shape=box,fillcolor=deepskyblue,style = filled,label="IntoHall "];
+intoHall [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoHall"];
+roomWindow [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+mainDoor [shape=ellipse,fillcolor=greenyellow,style = filled,label="mainDoor"];
+Ransack [shape=box,fillcolor=deepskyblue,style = filled,label="Ransack "];
+OpInHouse [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+
+{rank=min;StartN_,Ransack}
+{rank=same;mainDoor,IntoHall}
+{rank=same;roomWindow,IntoRoom}
+{rank=same;intoHall,OpInHall}
+{rank=same;intoLivingRoom,InLivingRoom}
+{rank=same;intoRoom,InRoom}
+
+OpInRoom->RefIntoHall2[arrowhead="vee",fillcolor=white];
+
+snatch->InRoom[arrowtail=dot,dir=both,label="after"];
+OpInRoom->roomWindow2[arrowhead="vee",fillcolor=white];
+OpInRoom->snatch[arrowhead="vee",fillcolor=white];
+intoRoom->InRoom[arrowtail=dot,dir=both,label="after"];
+grabTV->InLivingRoom[arrowtail=dot,dir=both,label="after"];
+OpInLivingRoom->grabTV[arrowhead="vee",fillcolor=white];
+OpInLivingRoom->RefIntoHall[arrowhead="vee",fillcolor=white];
+
+intoLivingRoom->InLivingRoom[arrowtail=dot,dir=both,label="after"];
+intoKitchen->IntoHall[arrowtail=dot,dir=both,label="after"];
+OpInHall->mainDoor2[arrowhead="vee",fillcolor=white];
+OpInHall->RefIntoRoom[arrowhead="vee",fillcolor=white];
+
+OpInHall->intoKitchen[arrowhead="vee",fillcolor=white];
+OpInHall->intoLivingRoom[arrowhead="vee",fillcolor=white];
+intoHall->OpInHall[arrowtail=dot,dir=both,label="after"];
+roomWindow->IntoRoom[arrowtail=dot,dir=both,label="after"];
+mainDoor->IntoHall[arrowtail=dot,dir=both,label="after"];
+OpInHouse->roomWindow[arrowhead="vee",fillcolor=white];
+OpInHouse->mainDoor[arrowhead="vee",fillcolor=white];
+StartN_->Ransack[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+InRoom->OpInRoom[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+InLivingRoom->OpInLivingRoom[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+IntoRoom->intoRoom[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+IntoHall->intoHall[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Ransack->OpInHouse[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

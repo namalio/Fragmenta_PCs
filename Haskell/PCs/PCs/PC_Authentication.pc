@@ -1,0 +1,14 @@
+PC PC_Authentication@Authenticate
+compound Authenticate.n@OpAuthenticate
+operator OpAuthenticate.OpIf
+operator OpAuthenticateChoice.OpIntChoice
+atom deny
+op_connector_g OpAuthenticate->OpAuthenticateChoice{n>0}
+op_else_connector OpAuthenticate->deny
+atom grant
+atom fail
+op_connector OpAuthenticateChoice->grant
+op_connector OpAuthenticateChoice->fail
+reference RefAuthenticate
+after_connector fail->RefAuthenticate
+ref_connector RefAuthenticate->Authenticate.n-1

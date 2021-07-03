@@ -1,0 +1,12 @@
+Morphism F_MM_4 {
+	nodes {
+    PAtom->Node
+	  PParameter->Attribute
+		AnyExp->Attribute
+	}
+	edges {
+		 AtomExp->Has
+		 AnyExp_atSet->Has2
+		 AnyExp_atv->Has2
+	}
+}

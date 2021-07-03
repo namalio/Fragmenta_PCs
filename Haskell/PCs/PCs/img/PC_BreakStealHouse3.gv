@@ -1,0 +1,66 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_BreakStealHouse3];
+runAway [shape=ellipse,fillcolor=greenyellow,style = filled,label="runAway"];
+getOut [shape=ellipse,fillcolor=greenyellow,style = filled,label="getOut"];
+Escape [shape=box,fillcolor=deepskyblue,style = filled,label="Escape "];
+abortStealingOfSafe [shape=ellipse,fillcolor=greenyellow,style = filled,label="abortStealingOfSafe"];
+breakAndSteal [shape=ellipse,fillcolor=greenyellow,style = filled,label="breakAndSteal"];
+OpRobSafes [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+RefRifleHouse [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+stealOther [shape=ellipse,fillcolor=greenyellow,style = filled,label="stealOther"];
+stealMoney [shape=ellipse,fillcolor=greenyellow,style = filled,label="stealMoney"];
+stealLaptop [shape=ellipse,fillcolor=greenyellow,style = filled,label="stealLaptop"];
+stealTV [shape=ellipse,fillcolor=greenyellow,style = filled,label="stealTV"];
+OpStealValuables [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+doneRifling [shape=ellipse,fillcolor=greenyellow,style = filled,label="doneRifling"];
+RobSafes [shape=box,fillcolor=deepskyblue,style = filled,label="RobSafes "];
+StealValuables [shape=box,fillcolor=deepskyblue,style = filled,label="StealValuables "];
+OpBreakAndSteal [shape=diamond,fillcolor=yellow,style = filled,label="|||"];
+BreakAndSteal [shape=box,fillcolor=deepskyblue,style = filled,label="BreakAndSteal "];
+ranSack [shape=ellipse,fillcolor=greenyellow,style = filled,label="ranSack"];
+RifleHouse [shape=box,fillcolor=deepskyblue,style = filled,label="RifleHouse "];
+stolenKey [shape=ellipse,fillcolor=greenyellow,style = filled,label="stolenKey"];
+breakWindow [shape=ellipse,fillcolor=greenyellow,style = filled,label="breakWindow"];
+breakDoor [shape=ellipse,fillcolor=greenyellow,style = filled,label="breakDoor"];
+OpGetInside [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+GetInside [shape=box,fillcolor=deepskyblue,style = filled,label="GetInside "];
+BreakAndStealHouse [shape=box,fillcolor=deepskyblue,style = filled,label="BreakAndStealHouse "];
+
+{rank=min;StartN_,BreakAndStealHouse}
+{rank=same;GetInside,RifleHouse,Escape}
+{rank=same;ranSack,BreakAndSteal}
+{rank=same;RifleHouse,Escape}
+{rank=same;getOut,runAway}
+
+getOut->runAway[arrowtail=dot,dir=both,label="after"];
+RifleHouse->Escape[arrowtail=dot,dir=both,label="after"];
+abortStealingOfSafe->RefRifleHouse[arrowtail=dot,dir=both,label="after"];
+breakAndSteal->RefRifleHouse[arrowtail=dot,dir=both,label="after"];
+OpRobSafes->abortStealingOfSafe[arrowhead="vee",fillcolor=white];
+OpRobSafes->breakAndSteal[arrowhead="vee",fillcolor=white];
+RefRifleHouse->RifleHouse[arrowhead="normalnormal",label=" "];
+stealOther->RefRifleHouse[arrowtail=dot,dir=both,label="after"];
+stealMoney->RefRifleHouse[arrowtail=dot,dir=both,label="after"];
+stealLaptop->RefRifleHouse[arrowtail=dot,dir=both,label="after"];
+stealTV->RefRifleHouse[arrowtail=dot,dir=both,label="after"];
+OpStealValuables->stealOther[arrowhead="vee",fillcolor=white];
+OpStealValuables->stealMoney[arrowhead="vee",fillcolor=white];
+OpStealValuables->stealLaptop[arrowhead="vee",fillcolor=white];
+OpStealValuables->stealTV[arrowhead="vee",fillcolor=white];
+OpBreakAndSteal->doneRifling[arrowhead="vee",fillcolor=white];
+OpBreakAndSteal->RobSafes[arrowhead="vee",fillcolor=white];
+OpBreakAndSteal->StealValuables[arrowhead="vee",fillcolor=white];
+ranSack->BreakAndSteal[arrowtail=dot,dir=both,label="after"];
+GetInside->RifleHouse[arrowtail=dot,dir=both,label="after"];
+OpGetInside->stolenKey[arrowhead="vee",fillcolor=white];
+OpGetInside->breakWindow[arrowhead="vee",fillcolor=white];
+OpGetInside->breakDoor[arrowhead="vee",fillcolor=white];
+StartN_->BreakAndStealHouse[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+Escape->getOut[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+RobSafes->OpRobSafes[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+StealValuables->OpStealValuables[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+BreakAndSteal->OpBreakAndSteal[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+RifleHouse->ranSack[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+GetInside->OpGetInside[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+BreakAndStealHouse->GetInside[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

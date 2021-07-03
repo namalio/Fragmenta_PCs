@@ -1,0 +1,46 @@
+PC PC_HouseUnderAttack_Ransack@Ransack
+operator OpInHouse.OpChoice
+compound Ransack@OpInHouse
+atom mainDoor
+atom roomWindow
+atom intoHall
+op_connector OpInHouse->mainDoor
+op_connector OpInHouse->roomWindow
+compound IntoHall@intoHall
+compound IntoRoom@intoRoom
+after_connector mainDoor->IntoHall
+after_connector roomWindow->IntoRoom
+operator OpInHall.OpChoice
+after_connector intoHall->OpInHall
+atom intoLivingRoom
+atom intoKitchen
+op_connector OpInHall->intoLivingRoom
+op_connector OpInHall->intoKitchen
+reference RefIntoRoom.IntoRoom
+ref_connector hidden RefIntoRoom->IntoRoom
+op_connector OpInHall->RefIntoRoom
+atom mainDoor2.mainDoor
+op_connector OpInHall->mainDoor2
+after_connector intoKitchen->IntoHall
+after_connector intoLivingRoom->InLivingRoom
+operator OpInLivingRoom.OpChoice
+compound InLivingRoom@OpInLivingRoom
+reference RefIntoHall.IntoHall
+ref_connector hidden RefIntoHall->IntoHall
+op_connector OpInLivingRoom->RefIntoHall
+atom grabTV
+op_connector OpInLivingRoom->grabTV
+after_connector grabTV->InLivingRoom
+atom intoRoom
+compound IntoRoom@intoRoom
+compound InRoom@OpInRoom
+operator OpInRoom.OpChoice
+after_connector intoRoom->InRoom
+atom snatch<:{grabLaptop,grabJewels}>
+op_connector OpInRoom->snatch
+atom roomWindow2.roomWindow
+op_connector OpInRoom->roomWindow2
+after_connector snatch->InRoom
+reference RefIntoHall2.IntoHall
+ref_connector hidden RefIntoHall2->IntoHall
+op_connector OpInRoom->RefIntoHall2

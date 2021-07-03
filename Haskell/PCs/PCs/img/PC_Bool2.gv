@@ -1,0 +1,34 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_Bool2];
+getF [shape=ellipse,fillcolor=greenyellow,style = filled,label="getF"];
+OpBoolF [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+BoolF [shape=box,fillcolor=deepskyblue,style = filled,label="BoolF "];
+RefBool [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+getT [shape=ellipse,fillcolor=greenyellow,style = filled,label="getT"];
+OpBoolT [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+BoolT [shape=box,fillcolor=deepskyblue,style = filled,label="BoolT "];
+assignF [shape=ellipse,fillcolor=greenyellow,style = filled,label="assignF"];
+assignT [shape=ellipse,fillcolor=greenyellow,style = filled,label="assignT"];
+OpBool [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+Bool [shape=box,fillcolor=deepskyblue,style = filled,label="Bool "];
+
+{rank=min;StartN_,Bool}
+{rank=same;assignT,BoolT}
+{rank=same;assignF,BoolF}
+
+getF->BoolF[arrowtail=dot,dir=both,label="after"];
+OpBoolF->RefBool[arrowhead="vee",fillcolor=white];
+OpBoolF->getF[arrowhead="vee",fillcolor=white];
+RefBool->Bool[arrowhead="normalnormal",label=" "];
+getT->BoolT[arrowtail=dot,dir=both,label="after"];
+OpBoolT->RefBool[arrowhead="vee",fillcolor=white];
+OpBoolT->getT[arrowhead="vee",fillcolor=white];
+assignF->BoolF[arrowtail=dot,dir=both,label="after"];
+assignT->BoolT[arrowtail=dot,dir=both,label="after"];
+OpBool->assignF[arrowhead="vee",fillcolor=white];
+OpBool->assignT[arrowhead="vee",fillcolor=white];
+StartN_->Bool[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+BoolF->OpBoolF[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+BoolT->OpBoolT[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Bool->OpBool[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

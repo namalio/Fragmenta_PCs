@@ -1,0 +1,18 @@
+digraph {graph[label=F_MM_1,labelloc=tl,labelfontsize=12];
+subgraph cluster_F_MM_1{style=dashed;label=F_MM_1;
+"NamedNode"[shape=record,fillcolor=lightskyblue1,style = filled,label=<{<I>NamedNode</I><br/>(A)}>];
+"Name"[shape=record,fillcolor=lightskyblue1,style = filled,label="Name"];
+"Node"[shape=record,fillcolor=lightskyblue1,style = filled,label=<{<I>Node</I><br/>(A)}>];
+"Connector"[shape=record,fillcolor=lightskyblue1,style = filled,label=<{<I>Connector</I><br/>(A)}>];
+"PCDef"[shape=record,fillcolor=lightskyblue1,style = filled,label="PCDef"];
+"StartN"[shape=record,fillcolor=lightskyblue1,style = filled,label="StartN"];
+
+"NamedNode"->"Node"[arrowhead=onormal,arrowsize=2.0];
+"StartN"->"NamedNode"[arrowhead=onormal,arrowsize=2.0];
+"NamedNode"->"Name"[label="NamedNode_name▼",arrowhead=vee,headlabel="",arrowsize=.5];
+"PCDef"->"Node"[label="ContainsNs▼",arrowhead=vee,arrowtail=diamond,dir=both,headlabel="*"];
+"PCDef"->"Connector"[label="ContainsCs▼",arrowhead=vee,arrowtail=diamond,dir=both,headlabel="*"];
+"PCDef"->"StartN"[label="Starts▼",dir=none,taillabel="",headlabel=""];
+
+}
+}

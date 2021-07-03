@@ -1,0 +1,4 @@
+digraph {graph[label=PCs_AMM_gfg,labelloc=tl,labelfontsize=12];
+"F_AMM"[shape=oval,fillcolor="#FFCCCC",style ="filled,dotted",label="F_AMM"];
+
+}

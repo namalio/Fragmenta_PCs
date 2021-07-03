@@ -1,0 +1,17 @@
+Morphism F_MM_7 {
+	nodes {
+		PNode2->Node
+		PParameterised2->Element
+		Reference->Node
+		PAction2->Node
+		PGuarded->Element
+		PName->Attribute
+		Renaming->Attribute
+		PYesNo->Attribute
+	}
+	edges {
+		 Reference_name->Has
+		 Reference_inner->Has
+		 Renamings->Has
+	}
+}

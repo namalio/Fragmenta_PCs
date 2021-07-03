@@ -1,0 +1,8 @@
+PC PC_FaultyClock@FaultyClock
+atom tick
+compound FaultyClock@OpFaultyClock
+operator OpFaultyClock.OpIntChoice
+stop STOP
+op_connector OpFaultyClock->tick
+op_connector OpFaultyClock->STOP
+after_connector tick->FaultyClock

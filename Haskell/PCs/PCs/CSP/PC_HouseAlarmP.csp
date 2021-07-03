@@ -1,0 +1,7 @@
+HouseAlarm(aes) = 
+   let 
+      HouseAlarm0(active,triggered) = (active and (not triggered) & ([] e : aes @ e -> SKIP); alarmSounds -> HouseAlarm0(active,True))
+            [] active & disableAlarm -> HouseAlarm0(False,False)
+            [] not active & activateAlarm -> HouseAlarm0(True,False)
+   within
+      HouseAlarm0(False,False)

@@ -1,0 +1,21 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_BreakStealHouse1];
+OpGetInside [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+stealTV [shape=ellipse,fillcolor=greenyellow,style = filled,label="stealTV"];
+stolenKey [shape=ellipse,fillcolor=greenyellow,style = filled,label="stolenKey"];
+breakWindow [shape=ellipse,fillcolor=greenyellow,style = filled,label="breakWindow"];
+breakDoor [shape=ellipse,fillcolor=greenyellow,style = filled,label="breakDoor"];
+GetInside [shape=box,fillcolor=deepskyblue,style = filled,label="GetInside "];
+BreakAndStealHouse [shape=box,fillcolor=deepskyblue,style = filled,label="BreakAndStealHouse "];
+
+{rank=min;StartN_,BreakAndStealHouse}
+{rank=same;GetInside,stealTV}
+
+OpGetInside->stolenKey[arrowhead="vee",fillcolor=white];
+OpGetInside->breakWindow[arrowhead="vee",fillcolor=white];
+OpGetInside->breakDoor[arrowhead="vee",fillcolor=white];
+GetInside->stealTV[arrowtail=dot,dir=both,label="after"];
+StartN_->BreakAndStealHouse[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+GetInside->OpGetInside[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+BreakAndStealHouse->GetInside[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

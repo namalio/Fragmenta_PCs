@@ -1,0 +1,4 @@
+include "PC_PAuthP.csp"
+include "PC_CashMachine.csp"
+
+assert ThisAsset [T= CashMachine

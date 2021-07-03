@@ -1,0 +1,32 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_MenacedHouse];
+OpMenacedHouse [shape=diamond,fillcolor=yellow,style = filled,label="||"];
+OpMenacedHouse_ps[shape=rect,fillcolor=yellow,style="filled,dotted",label="intoRoom,intoHall,mainDoor,roomWindow"];
+OpMenacedHouse->OpMenacedHouse_ps [dir=none,color="black:invis:black"];
+{rank=same;OpMenacedHouse,OpMenacedHouse_ps}
+RefHouseAttacker [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="HouseAttacker "];
+OpProtectedHouse [shape=diamond,fillcolor=yellow,style = filled,label="||"];
+OpProtectedHouse_ps[shape=rect,fillcolor=yellow,style="filled,dotted",label="intoHall"];
+OpProtectedHouse->OpProtectedHouse_ps [dir=none,color="black:invis:black"];
+{rank=same;OpProtectedHouse,OpProtectedHouse_ps}
+PC_HouseLiving [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseLiving];
+PC_HouseAlarm [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseAlarm];
+RefHouseAlarm [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="HouseAlarm ({intoHall})"];
+RefHouseLiving [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="HouseLiving "];
+ProtectedHouse [shape=box,fillcolor=deepskyblue,style = filled,label="ProtectedHouse "];
+PC_HouseAttacker [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseAttacker];
+MenacedHouse [shape=box,fillcolor=deepskyblue,style = filled,label="MenacedHouse "];
+
+{rank=min;StartN_,MenacedHouse}
+
+OpProtectedHouse->RefHouseAlarm[arrowhead="vee",fillcolor=white,label=""];
+OpProtectedHouse->RefHouseLiving[arrowhead="vee",fillcolor=white,label=""];
+RefHouseAlarm->PC_HouseAlarm[arrowhead="normalnormal",label=" "];
+RefHouseLiving->PC_HouseLiving[arrowhead="normalnormal",label=" "];
+OpMenacedHouse->ProtectedHouse[arrowhead="vee",fillcolor=white,label=""];
+OpMenacedHouse->RefHouseAttacker[arrowhead="vee",fillcolor=white,label=""];
+RefHouseAttacker->PC_HouseAttacker[arrowhead="normalnormal",label=" "];
+StartN_->MenacedHouse[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+ProtectedHouse->OpProtectedHouse[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+MenacedHouse->OpMenacedHouse[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

@@ -1,0 +1,29 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_Lasbscs];
+Docs [shape=box,fillcolor=deepskyblue,style = filled,label="Docs "];
+Dobs [shape=box,fillcolor=deepskyblue,style = filled,label="Dobs "];
+OpDocs [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+OpDobs [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+OpDoas [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+nil [shape=ellipse,fillcolor=greenyellow,style = filled,label="nil"];
+c [shape=ellipse,fillcolor=greenyellow,style = filled,label="c"];
+b [shape=ellipse,fillcolor=greenyellow,style = filled,label="b"];
+a [shape=ellipse,fillcolor=greenyellow,style = filled,label="a"];
+Doas [shape=box,fillcolor=deepskyblue,style = filled,label="Doas "];
+
+{rank=min;StartN_,Doas}
+
+OpDocs->nil[arrowhead="vee",fillcolor=white];
+OpDocs->c[arrowhead="vee",fillcolor=white];
+OpDobs->Docs[arrowhead="vee",fillcolor=white];
+OpDobs->b[arrowhead="vee",fillcolor=white];
+c->Docs[arrowtail=dot,dir=both,label="after"];
+b->Dobs[arrowtail=dot,dir=both,label="after"];
+a->Doas[arrowtail=dot,dir=both,label="after"];
+OpDoas->Dobs[arrowhead="vee",fillcolor=white];
+OpDoas->a[arrowhead="vee",fillcolor=white];
+StartN_->Doas[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+Docs->OpDocs[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Dobs->OpDobs[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Doas->OpDoas[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

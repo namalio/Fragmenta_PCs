@@ -1,0 +1,8 @@
+TicketMachine = 
+   let 
+      ReturnCoins = ejectCoins -> SKIP
+   within
+      coin -> (green -> (issueTicket -> SKIP
+          |~| ReturnCoins)
+         [] red -> ReturnCoins
+         [] TicketMachine)

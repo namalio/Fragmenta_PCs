@@ -1,0 +1,41 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_BiscuitJar];
+RefBiscuitJar [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+RefJarOpenedDrop [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+RefJarOpenedTake [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+RefJarOpened [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+closeJar [shape=ellipse,fillcolor=greenyellow,style = filled,label="closeJar"];
+dropBiscuit [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {n<m}
+dropBiscuit"];
+takeBiscuit [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {n>0}
+takeBiscuit"];
+OpJarOpened [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+OpJarOpenedIf [shape=diamond,fillcolor=yellow,style = filled,label="If"];
+STOP [shape=box,fillcolor=mistyrose2,style = filled,label="STOP"];
+JarOpened [shape=box,fillcolor=deepskyblue,style = filled,label="JarOpened (n,m)"];
+BiscuitJar [shape=box,fillcolor=deepskyblue,style = filled,label="BiscuitJar (n,m)"];
+openJar [shape=ellipse,fillcolor=greenyellow,style = filled,label="openJar"];
+
+{rank=min;StartN_,BiscuitJar}
+{rank=same;openJar,RefJarOpened}
+{rank=same;takeBiscuit,RefJarOpenedTake}
+{rank=same;dropBiscuit,RefJarOpenedDrop}
+{rank=same;closeJar,RefBiscuitJar}
+
+closeJar->RefBiscuitJar[arrowtail=dot,dir=both,label="after"];
+RefBiscuitJar->BiscuitJar[arrowhead="normalnormal",label=" (n,m)"];
+dropBiscuit->RefJarOpenedDrop[arrowtail=dot,dir=both,label="after"];
+takeBiscuit->RefJarOpenedTake[arrowtail=dot,dir=both,label="after"];
+RefJarOpenedDrop->JarOpened[arrowhead="normalnormal",label=" (n+1,m)"];
+RefJarOpenedTake->JarOpened[arrowhead="normalnormal",label=" (n-1,m)"];
+openJar->RefJarOpened[arrowtail=dot,dir=both,label="after"];
+RefJarOpened->JarOpened[arrowhead="normalnormal",label=" (n,m)"];
+OpJarOpened->closeJar[arrowhead="vee",fillcolor=white];
+OpJarOpened->dropBiscuit[arrowhead="vee",fillcolor=white];
+OpJarOpened->takeBiscuit[arrowhead="vee",fillcolor=white];
+OpJarOpenedIf->STOP[arrowhead="vee",label="Else"];
+OpJarOpenedIf->OpJarOpened[arrowhead="vee",fillcolor=white,label="n>=0 and n<=m"];
+StartN_->BiscuitJar[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+JarOpened->OpJarOpenedIf[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+BiscuitJar->openJar[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

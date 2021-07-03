@@ -1,0 +1,16 @@
+Morphism F_MM_11 {
+	nodes {
+		BMainIfC->Connector
+		BElseC->Connector
+		BJumpC->Connector
+		BranchC->Connector
+		PConnector4->Connector
+		PAction4->Node
+		POperator2->Node
+		PGuarded2->Element
+	}
+	edges {
+		BranchCSrc->Connector_src
+		BranchCTgt->Connector_tgt
+	}
+}

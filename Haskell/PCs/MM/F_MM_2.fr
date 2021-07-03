@@ -1,0 +1,26 @@
+fragment F_MM_2 {
+  SG SG_MM_2 {
+    proxy PNamedNode
+    node Import
+    node Compound
+    node Atom
+    node Guard
+    virtual Action
+    virtual Parameterised
+    virtual TargetOfRef
+    virtual Guarded
+    node Parameter
+    inh Import->PNamedNode
+    inh Compound->PNamedNode
+    inh Atom->PNamedNode
+    inh Import->TargetOfRef
+    inh Compound->TargetOfRef
+    inh Compound->Parameterised
+    inh Atom->Action
+    inh Atom->Guarded
+    inh Compound->Action
+    relu Parameterised->Parameter[HasParams]:*
+    relu Guarded->Guard[HasGuard]:0..1
+  }
+  ref PNamedNode->NamedNode
+}

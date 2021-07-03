@@ -1,0 +1,10 @@
+CashMachine = 
+   let 
+      CashMachine0 = 
+         let 
+            DoOptions = (ShowBalance; DoOptions)
+                  [] (Withdraw; DoOptions)
+         within
+            (((CashMachineOps; DoOptions) ||| cancel -> SKIP)[|{deny,cancel}|>SKIP)[|{deny,cardIn,cancel}|]CardControl
+   within
+      CashMachine0; CashMachine

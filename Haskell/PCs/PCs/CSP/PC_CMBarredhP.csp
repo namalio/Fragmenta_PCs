@@ -1,0 +1,24 @@
+CMBarred = BarredAsset({cardIn},{cancel},{grant},{withdraw, showBalance},{cashDeny, cashCollect, fail, cardSwallow, cCollectTimeout, cCollect, cardEject, deny, cancel})
+
+BarredAsset(ses,rses,bes,pes,oes) = 
+   let 
+      BarredAsset0 = 
+         let 
+            DoIt = 
+               let 
+                  CarryOut = 
+                     let 
+                        DoBarred = SKIP
+                               |~| ((([] e : pes @ e -> SKIP); DoBarred)
+                              [] (([] e : oes @ e -> SKIP); DoBarred))
+                     within
+                        SKIP
+                            |~| ((([] e : bes @ e -> SKIP); DoBarred)
+                           [] (([] e : oes @ e -> SKIP); CarryOut))
+               within
+                  CarryOut
+         within
+            ([] e : rses @ e -> SKIP)
+               [] (([] e : ses @ e -> SKIP); DoIt)
+   within
+      BarredAsset0; BarredAsset(ses,rses,bes,pes,oes)

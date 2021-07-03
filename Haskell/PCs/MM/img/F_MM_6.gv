@@ -1,0 +1,19 @@
+digraph {graph[label=F_MM_6,labelloc=tl,labelfontsize=12];
+subgraph cluster_F_MM_6{style=dashed;label=F_MM_6;
+"OperatorVal"[shape=record,fillcolor="#FFCCFF",style = filled,label="OperatorVal\l(enum)"];
+"OpChoice"[shape=cds,fillcolor="#FFF2CC",style = filled,label="OpChoice"];
+"OpIntChoice"[shape=cds,fillcolor="#FFF2CC",style = filled,label="OpIntChoice"];
+"OpParallel"[shape=cds,fillcolor="#FFF2CC",style = filled,label="OpParallel"];
+"OpIf"[shape=cds,fillcolor="#FFF2CC",style = filled,label="OpIf"];
+"OpInterleave"[shape=cds,fillcolor="#FFF2CC",style = filled,label="OpInterleave"];
+"OpThrow"[shape=cds,fillcolor="#FFF2CC",style = filled,label="OpThrow"];
+
+"OpChoice"->"OperatorVal"[arrowhead=onormal,arrowsize=2.0];
+"OpIntChoice"->"OperatorVal"[arrowhead=onormal,arrowsize=2.0];
+"OpParallel"->"OperatorVal"[arrowhead=onormal,arrowsize=2.0];
+"OpIf"->"OperatorVal"[arrowhead=onormal,arrowsize=2.0];
+"OpInterleave"->"OperatorVal"[arrowhead=onormal,arrowsize=2.0];
+"OpThrow"->"OperatorVal"[arrowhead=onormal,arrowsize=2.0];
+
+}
+}

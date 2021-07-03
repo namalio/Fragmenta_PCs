@@ -1,0 +1,7 @@
+ActOnCancel = 
+   let 
+      ActOnCardIn = cancel -> cardEject -> (cCollectTimeout -> cardSwallow -> SKIP
+            [] cCollect -> SKIP)
+   within
+      cardIn -> ActOnCardIn
+         [] cancel -> SKIP

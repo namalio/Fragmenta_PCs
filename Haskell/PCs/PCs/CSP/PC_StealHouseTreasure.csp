@@ -1,0 +1,3 @@
+include "PC_StealHouseTreasureP.csp"
+include "PC_StealHouseTreasure_base.csp"
+

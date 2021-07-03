@@ -1,0 +1,2 @@
+FaultyClock = STOP
+       |~| tick -> FaultyClock

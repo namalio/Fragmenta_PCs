@@ -1,0 +1,21 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_VM2];
+RefVM2 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+water [shape=ellipse,fillcolor=greenyellow,style = filled,label="water"];
+choc [shape=ellipse,fillcolor=greenyellow,style = filled,label="choc"];
+OpChoose [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+coin [shape=ellipse,fillcolor=greenyellow,style = filled,label="coin"];
+VM2 [shape=box,fillcolor=deepskyblue,style = filled,label="VM2 "];
+
+{rank=min;StartN_,VM2}
+{rank=same;coin,OpChoose}
+
+RefVM2->VM2[arrowhead="normalnormal",label=" "];
+water->RefVM2[arrowtail=dot,dir=both,label="after"];
+choc->RefVM2[arrowtail=dot,dir=both,label="after"];
+OpChoose->water[arrowhead="vee",fillcolor=white];
+OpChoose->choc[arrowhead="vee",fillcolor=white];
+coin->OpChoose[arrowtail=dot,dir=both,label="after"];
+StartN_->VM2[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+VM2->coin[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

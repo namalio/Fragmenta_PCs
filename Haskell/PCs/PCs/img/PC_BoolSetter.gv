@@ -1,0 +1,42 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_BoolSetter];
+getF [shape=ellipse,fillcolor=greenyellow,style = filled,label="getF"];
+OpBoolF [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+BoolF [shape=box,fillcolor=deepskyblue,style = filled,label="BoolF "];
+RefBool [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+getT [shape=ellipse,fillcolor=greenyellow,style = filled,label="getT"];
+OpBoolT [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+BoolT [shape=box,fillcolor=deepskyblue,style = filled,label="BoolT "];
+RefBoolF [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+RefBoolT [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+assignF [shape=ellipse,fillcolor=greenyellow,style = filled,label="assignF"];
+assignT [shape=ellipse,fillcolor=greenyellow,style = filled,label="assignT"];
+OpBool [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+Bool [shape=box,fillcolor=deepskyblue,style = filled,label="Bool "];
+BoolSetter [shape=box,fillcolor=deepskyblue,style = filled,label="BoolSetter "];
+
+{rank=min;StartN_,BoolSetter}
+{rank=same;assignT,RefBoolT}
+{rank=same;assignF,RefBoolF}
+{rank=same;getT,BoolT}
+{rank=same;getF,BoolF}
+
+RefBoolF->BoolF[arrowhead="normalnormal",label=" "];
+getF->BoolF[arrowtail=dot,dir=both,label="after"];
+OpBoolF->RefBool[arrowhead="vee",fillcolor=white];
+OpBoolF->getF[arrowhead="vee",fillcolor=white];
+RefBoolT->BoolT[arrowhead="normalnormal",label=" "];
+RefBool->Bool[arrowhead="normalnormal",label=" "];
+getT->BoolT[arrowtail=dot,dir=both,label="after"];
+OpBoolT->RefBool[arrowhead="vee",fillcolor=white];
+OpBoolT->getT[arrowhead="vee",fillcolor=white];
+assignF->RefBoolF[arrowtail=dot,dir=both,label="after"];
+assignT->RefBoolT[arrowtail=dot,dir=both,label="after"];
+OpBool->assignF[arrowhead="vee",fillcolor=white];
+OpBool->assignT[arrowhead="vee",fillcolor=white];
+StartN_->BoolSetter[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+BoolF->OpBoolF[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+BoolT->OpBoolT[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Bool->OpBool[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+BoolSetter->RefBoolF[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

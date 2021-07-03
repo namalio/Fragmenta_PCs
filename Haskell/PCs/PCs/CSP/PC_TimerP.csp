@@ -1,0 +1,4 @@
+Timer(t) = if t>=0
+    then t>0 & tock -> Timer(t-1)
+      [] t==0 & timeout -> SKIP
+   else STOP

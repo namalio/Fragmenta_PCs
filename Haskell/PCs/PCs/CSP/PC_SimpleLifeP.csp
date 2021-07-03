@@ -1,0 +1,4 @@
+Live = die -> STOP
+      [] rest -> (Timer,2,; Live)
+      [] move -> Live
+      [] eat -> Live

@@ -1,0 +1,18 @@
+HouseAttacker(ges,mes,ses) = 
+   let 
+      Steal = 
+         let 
+            Grab = ([] e : ses @ e -> SKIP); Steal
+            MoveInside = ([] e : mes @ e -> SKIP); Steal
+         within
+            SKIP
+               [] Grab
+               [] MoveInside
+      Escape = 
+         let 
+            WayOut = ([] e : mes @ e -> SKIP); Escape
+         within
+            ([] e : ges @ e -> SKIP)
+               [] WayOut
+   within
+      ([] e : ges @ e -> SKIP); Steal; (Escape; HouseAttacker(ges,mes,ses))

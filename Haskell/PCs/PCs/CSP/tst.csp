@@ -1,0 +1,8 @@
+channel a, c
+
+P(b) =
+    let
+        A = b & a->SKIP
+        C = (not b) & c->SKIP
+    within
+      A [] C

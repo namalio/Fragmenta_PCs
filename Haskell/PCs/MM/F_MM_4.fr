@@ -1,0 +1,12 @@
+fragment F_MM_4 {
+  SG SG_MM_4 {
+    proxy PAtom
+    proxy PParameter
+    node AnyExp
+    rel PAtom->AnyExp[AtomExp]:1,0..1
+    relu AnyExp->PParameter[AnyExp_atv]:0..1
+    relu AnyExp->PParameter[AnyExp_atSet]
+  }
+  ref PAtom->Atom
+  ref PParameter->Parameter
+}

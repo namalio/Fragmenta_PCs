@@ -1,0 +1,7 @@
+HouseAlarm(aes,ges,pes) = 
+   let 
+      WatchOut = ([] e : ges @ e -> SKIP)
+            [] (([] e : pes @ e -> SKIP); WatchOut)
+            [] (([] e : aes @ e -> SKIP); alarmSounds -> WatchOut)
+   within
+      ([] e : ges @ e -> SKIP); WatchOut

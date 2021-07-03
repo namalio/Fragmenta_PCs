@@ -1,0 +1,15 @@
+Morphism F_MM_10 {
+	nodes {
+		PConnector3->Connector
+		PParameterised3->Element
+		ReferenceC->Connector
+		PReference->Node
+		PTargetOfRef->Node
+		PYesNo3->Attribute
+	}
+	edges {
+		ReferenceCSrc->Connector_src
+		ReferenceCTgt->Connector_tgt
+		ReferenceC_hidden->Has
+	}
+}

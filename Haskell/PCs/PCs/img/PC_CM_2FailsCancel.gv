@@ -1,0 +1,30 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_CM_2FailsCancel];
+PC_CashMachine [shape=hexagon,fillcolor=orangered,style=filled,label =PC_CashMachine];
+RefCashMachine [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="CashMachine "];
+cCollect [shape=ellipse,fillcolor=greenyellow,style = filled,label="cCollect"];
+cardEject [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardEject"];
+cancel [shape=ellipse,fillcolor=greenyellow,style = filled,label="cancel"];
+fail2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="fail"];
+fail [shape=ellipse,fillcolor=greenyellow,style = filled,label="fail"];
+cardIn [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardIn"];
+CM2FsC [shape=box,fillcolor=deepskyblue,style = filled,label="CM2FsC "];
+
+{rank=min;StartN_,CM2FsC}
+{rank=same;cardIn,fail,fail2,cancel,cardEject,cCollect,RefCashMachine}
+{rank=same;fail,fail2,cancel,cardEject,cCollect,RefCashMachine}
+{rank=same;fail2,cancel,cardEject,cCollect,RefCashMachine}
+{rank=same;cancel,cardEject,cCollect,RefCashMachine}
+{rank=same;cardEject,cCollect,RefCashMachine}
+{rank=same;cCollect,RefCashMachine}
+
+cCollect->RefCashMachine[arrowtail=dot,dir=both,label="after"];
+RefCashMachine->PC_CashMachine[arrowhead="normalnormal",label=" "];
+cardEject->cCollect[arrowtail=dot,dir=both,label="after"];
+cancel->cardEject[arrowtail=dot,dir=both,label="after"];
+fail2->cancel[arrowtail=dot,dir=both,label="after"];
+fail->fail2[arrowtail=dot,dir=both,label="after"];
+cardIn->fail[arrowtail=dot,dir=both,label="after"];
+StartN_->CM2FsC[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+CM2FsC->cardIn[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

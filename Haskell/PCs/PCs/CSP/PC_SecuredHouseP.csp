@@ -1,0 +1,9 @@
+ThisSecuredHouse = SecuredHouse({mainDoor,roomWindow},{intoRoom,intoHall,intoLivingRoom,intoKitchen,grabTV,grabJewels,grabLaptop})
+
+SecuredHouse(ges,res) = 
+   let 
+      Ransack = SKIP
+             |~| (([] e : res @ e -> SKIP); Ransack)
+   within
+      ([] e : ges @ e -> SKIP); Ransack; alarmSounds -> (([] e : ges @ e -> SKIP)
+         [] Ransack)

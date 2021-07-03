@@ -1,0 +1,2 @@
+DoCancel = cardEject -> (cCollectTimeout -> cardSwallow -> SKIP
+      [] cCollect -> SKIP)

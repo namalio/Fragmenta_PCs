@@ -1,0 +1,33 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_CM_OkBalanceForget];
+PC_CashMachine [shape=hexagon,fillcolor=orangered,style=filled,label =PC_CashMachine];
+RefCashMachine [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="CashMachine "];
+cCollectTimeout [shape=ellipse,fillcolor=greenyellow,style = filled,label="cCollectTimeout"];
+cardSwallow [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardSwallow"];
+cardEject [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardEject"];
+cancel [shape=ellipse,fillcolor=greenyellow,style = filled,label="cancel"];
+showBalance [shape=ellipse,fillcolor=greenyellow,style = filled,label="showBalance"];
+grant [shape=ellipse,fillcolor=greenyellow,style = filled,label="grant"];
+cardIn [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardIn"];
+CMOkBalanceForget [shape=box,fillcolor=deepskyblue,style = filled,label="CMOkBalanceForget "];
+
+{rank=min;StartN_,CMOkBalanceForget}
+{rank=same;cardIn,grant,showBalance,cancel,cardEject,cCollectTimeout,cardSwallow,RefCashMachine}
+{rank=same;grant,showBalance,cancel,cardEject,cCollectTimeout,cardSwallow,RefCashMachine}
+{rank=same;showBalance,cancel,cardEject,cCollectTimeout,cardSwallow,RefCashMachine}
+{rank=same;cancel,cardEject,cCollectTimeout,cardSwallow,RefCashMachine}
+{rank=same;cardEject,cCollectTimeout,cardSwallow,RefCashMachine}
+{rank=same;cCollectTimeout,cardSwallow,RefCashMachine}
+{rank=same;cardSwallow,RefCashMachine}
+
+cardSwallow->RefCashMachine[arrowtail=dot,dir=both,label="after"];
+RefCashMachine->PC_CashMachine[arrowhead="normalnormal",label=" "];
+cCollectTimeout->cardSwallow[arrowtail=dot,dir=both,label="after"];
+cardEject->cCollectTimeout[arrowtail=dot,dir=both,label="after"];
+cancel->cardEject[arrowtail=dot,dir=both,label="after"];
+showBalance->cancel[arrowtail=dot,dir=both,label="after"];
+grant->showBalance[arrowtail=dot,dir=both,label="after"];
+cardIn->grant[arrowtail=dot,dir=both,label="after"];
+StartN_->CMOkBalanceForget[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+CMOkBalanceForget->cardIn[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

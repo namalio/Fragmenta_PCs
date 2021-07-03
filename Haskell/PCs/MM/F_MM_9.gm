@@ -1,0 +1,17 @@
+Morphism F_MM_9 {
+	nodes {
+		AfterC->Connector
+		DefinesC->Connector
+		PConnector2->Connector
+		PAction3->Node
+		PCompound2->Node
+		PYesNo2->Attribute
+	}
+	edges {
+		AfterCSrc->Connector_src
+		AfterCTgt->Connector_tgt
+		DefinesCSrc->Connector_src
+		DefinesCTgt->Connector_tgt
+		AfterC_copen->Has
+	}
+}

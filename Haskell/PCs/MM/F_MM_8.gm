@@ -1,0 +1,12 @@
+Morphism F_MM_8 {
+	nodes {
+		StartC->Connector
+		PConnector->Connector
+		PStartN->Node
+		PCompound->Node
+	}
+	edges {
+		StartCSrc->Connector_src
+		StartCTgt->Connector_tgt
+	}
+}

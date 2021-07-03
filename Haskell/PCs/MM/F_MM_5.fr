@@ -1,0 +1,23 @@
+fragment F_MM_5 {
+  SG SG_MM_5 {
+    proxy PNode
+    proxy PParameterised
+    proxy PAction
+    proxy POperatorVal
+    node Stop
+    node Skip
+    node Operator
+    inh Stop->PNode
+    inh Skip->PNode
+    inh Operator->PNode
+    inh Operator->PParameterised
+    inh Stop->PAction
+    inh Skip->PAction
+    inh Operator->PAction
+    relu Operator->POperatorVal[Operator_op]
+  }
+  ref PNode->Node
+  ref PParameterised->Parameterised
+  ref PAction->Action
+  ref POperatorVal->OperatorVal
+}

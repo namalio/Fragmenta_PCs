@@ -1,0 +1,1 @@
+channel cardIn, readCard, ejectCard, collectTimeout1, collectTimeout2, swallowCard, cardCollect

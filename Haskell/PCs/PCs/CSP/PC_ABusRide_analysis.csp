@@ -1,0 +1,4 @@
+include "PC_ABusRideP.csp"
+include "PC_BusRider.csp"
+
+assert BusRider [T= ABusRide

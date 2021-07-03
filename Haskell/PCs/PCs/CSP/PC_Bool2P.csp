@@ -1,0 +1,9 @@
+Bool = 
+   let 
+      BoolF = Bool
+            [] getF -> BoolF
+      BoolT = Bool
+            [] getT -> BoolT
+   within
+      assignF -> BoolF
+         [] assignT -> BoolT

@@ -1,0 +1,39 @@
+PC PC_HouseLiving@HouseLiving
+operator OpHouseLiving.OpChoice
+compound HouseLiving@OpHouseLiving
+atom mainDoor
+atom roomWindow
+atom intoHall
+op_connector OpHouseLiving->mainDoor
+op_connector OpHouseLiving->roomWindow
+compound EnterHall@intoHall
+compound EnterRoom@intoRoom
+after_connector mainDoor->EnterHall
+after_connector roomWindow->EnterRoom
+after_connector intoHall->OpEnterHall
+operator OpEnterHall.OpChoice
+operator OpInsideRoom.OpChoice
+atom intoRoom
+atom intoLivingRoom
+atom intoKitchen
+atom mainDoor2.mainDoor
+op_connector OpEnterHall->intoLivingRoom
+op_connector OpEnterHall->intoKitchen
+op_connector OpEnterHall->mainDoor2
+reference RefEnterHall.EnterHall
+ref_connector hidden RefEnterHall->EnterHall
+reference RefEnterHall2.EnterHall
+ref_connector hidden RefEnterHall2->EnterHall
+reference RefEnterRoom.EnterRoom
+ref_connector hidden RefEnterRoom->EnterRoom
+after_connector intoLivingRoom->RefEnterHall
+after_connector intoKitchen->RefEnterHall
+after_connector mainDoor2->HouseLiving
+op_connector OpEnterHall->RefEnterRoom
+after_connector intoRoom->OpInsideRoom
+op_connector OpInsideRoom->RefEnterHall2
+atom roomWindow2.roomWindow
+op_connector OpInsideRoom->roomWindow2
+reference RefHouseLiving.HouseLiving
+ref_connector hidden RefHouseLiving->HouseLiving
+after_connector roomWindow2->RefHouseLiving

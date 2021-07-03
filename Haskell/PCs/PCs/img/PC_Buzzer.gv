@@ -1,0 +1,21 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_Buzzer];
+RefTimer [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="Timer (3)
+⟦timeout/mute⟧"];
+Buzzing [shape=box,fillcolor=deepskyblue,style = filled,label="Buzzing "];
+Muted [shape=box,fillcolor=deepskyblue,style = filled,label="Muted "];
+buzz [shape=ellipse,fillcolor=greenyellow,style = filled,label="buzz"];
+Buzzer [shape=box,fillcolor=deepskyblue,style = filled,label="Buzzer "];
+PC_Timer [shape=hexagon,fillcolor=orangered,style=filled,label =PC_Timer];
+
+{rank=min;StartN_,Buzzer}
+{rank=same;buzz,Buzzing}
+
+Buzzing->Muted[arrowtail=dot,dir=both,label="after"];
+buzz->Buzzing[arrowtail=dot,dir=both,label="after"];
+RefTimer->PC_Timer[arrowhead="normalnormal",label=" "];
+StartN_->Buzzer[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+Buzzing->RefTimer[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Muted->buzz[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Buzzer->Muted[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

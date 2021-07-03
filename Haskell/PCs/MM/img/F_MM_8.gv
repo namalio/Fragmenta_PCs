@@ -1,0 +1,16 @@
+digraph {graph[label=F_MM_8,labelloc=tl,labelfontsize=12];
+subgraph cluster_F_MM_8{style=dashed;label=F_MM_8;
+"PConnector"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Connector<br/>(P)>];
+"PStartN"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<StartN<br/>(P)>];
+"StartC"[shape=record,fillcolor=lightskyblue1,style = filled,label="StartC"];
+"PCompound"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<Compound<br/>(P)>];
+
+"StartC"->"PConnector"[arrowhead=onormal,arrowsize=2.0];
+"StartC"->"PStartN"[label="StartCSrc▼",dir=none,taillabel="",headlabel=""];
+"StartC"->"PCompound"[label="StartCTgt▼",dir=none,taillabel="0..1",headlabel=""];
+
+}
+
+
+
+}

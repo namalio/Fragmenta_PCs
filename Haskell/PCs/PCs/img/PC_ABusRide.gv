@@ -1,0 +1,22 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_ABusRide];
+getOff [shape=ellipse,fillcolor=greenyellow,style = filled,label="getOff"];
+move2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="move"];
+seat [shape=ellipse,fillcolor=greenyellow,style = filled,label="seat"];
+move [shape=ellipse,fillcolor=greenyellow,style = filled,label="move"];
+ABusRide [shape=box,fillcolor=deepskyblue,style = filled,label="ABusRide "];
+getOn [shape=ellipse,fillcolor=greenyellow,style = filled,label="getOn"];
+
+{rank=min;StartN_,ABusRide}
+{rank=same;getOn,move,seat,move2,getOff}
+{rank=same;move,seat,move2,getOff}
+{rank=same;seat,move2,getOff}
+{rank=same;move2,getOff}
+
+move2->getOff[arrowtail=dot,dir=both,label="after"];
+seat->move2[arrowtail=dot,dir=both,label="after"];
+move->seat[arrowtail=dot,dir=both,label="after"];
+getOn->move[arrowtail=dot,dir=both,label="after"];
+StartN_->ABusRide[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+ABusRide->getOn[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

@@ -1,0 +1,13 @@
+PC PC_MadTicker@MadTicker
+compound MadTicker@OpCT
+operator OpCT.OpChoice
+atom taque
+atom tique
+atom toque
+stop STOP
+operator OpCT2.OpChoice
+op_connector OpCT->OpCT2
+op_connector OpCT->taque
+after_connector taque->STOP
+op_connector OpCT2->tique
+op_connector OpCT2->toque

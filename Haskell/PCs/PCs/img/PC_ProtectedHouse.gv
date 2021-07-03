@@ -1,0 +1,21 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_ProtectedHouse];
+RefHouseAlarm [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="HouseAlarm({intoHall},{mainDoor,roomWindow},{intoRoom,intoKitchen,intoLivingRoom,grabTV,grabJewels,grabLaptop}) "];
+PC_ProtectedHouse_HouseAlarm [shape=hexagon,fillcolor=orangered,style=filled,label =PC_ProtectedHouse_HouseAlarm];
+PC_HouseUnderAttack [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseUnderAttack];
+RefHouseUnderAttack [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="HouseUnderAttack "];
+ProtectedHouse [shape=box,fillcolor=deepskyblue,style = filled,label="ProtectedHouse "];
+OpProtectedHouse [shape=diamond,fillcolor=yellow,style = filled,label="||"];
+OpProtectedHouse_ps[shape=rect,fillcolor=yellow,style="filled,dotted",label="intoHall,mainDoor,roomWindow,intoRoom,intoKitchen,intoLivingRoom,grabTV,grabJewels,grabLaptop"];
+OpProtectedHouse->OpProtectedHouse_ps [dir=none,color="black:invis:black"];
+{rank=same;OpProtectedHouse,OpProtectedHouse_ps}
+
+{rank=min;StartN_,ProtectedHouse}
+
+OpProtectedHouse->RefHouseAlarm[arrowhead="vee",fillcolor=white];
+OpProtectedHouse->RefHouseUnderAttack[arrowhead="vee",fillcolor=white];
+RefHouseAlarm->PC_ProtectedHouse_HouseAlarm[arrowhead="normalnormal",label=" "];
+RefHouseUnderAttack->PC_HouseUnderAttack[arrowhead="normalnormal",label=" "];
+StartN_->ProtectedHouse[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+ProtectedHouse->OpProtectedHouse[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

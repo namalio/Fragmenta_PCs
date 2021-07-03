@@ -1,0 +1,16 @@
+BreakAndStealHouse = 
+   let 
+      RunAway = getOutandRun -> SKIP
+      DoBurglary = 
+         let 
+            GetInside = stolenKey -> SKIP
+                  [] breakWindow -> SKIP
+                  [] breakDoor -> SKIP
+            Steal = doneStealing -> SKIP
+                  [] stealValuable -> Steal
+         within
+            GetInside; (Steal; RunAway)
+      Alarm = noAlarm -> SKIP
+             |~| alarmSounds -> SKIP
+   within
+      (DoBurglary ||| Alarm)[|{alarmSounds}|>RunAway

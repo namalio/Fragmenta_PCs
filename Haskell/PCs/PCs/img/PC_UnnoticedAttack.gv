@@ -1,0 +1,27 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_UnnoticedAttack];
+moveSteal [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>anyof</I> {intoHall,intoLivingRoom,intoKitchen,intoRoom,grabTV,grabLaptop,grabJewels}<br/>[moveSteal]>];
+MoveStealEscape [shape=box,fillcolor=deepskyblue,style = filled,label="MoveStealEscape "];
+OpMoveStealEscape [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+RefEnterOrExit2 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="EnterOrExit "];
+RefEnterOrExit [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="EnterOrExit "];
+PC_HouseUnderAttack_EnterOrExit [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseUnderAttack_EnterOrExit];
+UnnoticedAttack [shape=box,fillcolor=deepskyblue,style = filled,label="UnnoticedAttack "];
+activateAlarm [shape=ellipse,fillcolor=greenyellow,style = filled,label="activateAlarm"];
+
+{rank=min;StartN_,UnnoticedAttack}
+{rank=same;activateAlarm,RefEnterOrExit,MoveStealEscape}
+{rank=same;RefEnterOrExit,MoveStealEscape}
+{rank=same;moveSteal,MoveStealEscape}
+
+moveSteal->MoveStealEscape[arrowtail=dot,dir=both,label="after"];
+OpMoveStealEscape->RefEnterOrExit2[arrowhead="vee",fillcolor=white,label=""];
+OpMoveStealEscape->moveSteal[arrowhead="vee",fillcolor=white,label=""];
+RefEnterOrExit2->PC_HouseUnderAttack_EnterOrExit[arrowhead="normalnormal",label=" "];
+RefEnterOrExit->MoveStealEscape[arrowtail=dot,dir=both,label="after"];
+activateAlarm->RefEnterOrExit[arrowtail=dot,dir=both,label="after"];
+RefEnterOrExit->PC_HouseUnderAttack_EnterOrExit[arrowhead="normalnormal",label=" "];
+StartN_->UnnoticedAttack[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+MoveStealEscape->OpMoveStealEscape[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+UnnoticedAttack->activateAlarm[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

@@ -1,0 +1,14 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_House_EnterExit];
+EnterOrExit [shape=box,fillcolor=deepskyblue,style = filled,label="EnterOrExit "];
+OpEnterOrExit [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+roomWindow [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+mainDoor [shape=ellipse,fillcolor=greenyellow,style = filled,label="mainDoor"];
+
+{rank=min;StartN_,EnterOrExit}
+
+OpEnterOrExit->roomWindow[arrowhead="vee",fillcolor=white];
+OpEnterOrExit->mainDoor[arrowhead="vee",fillcolor=white];
+StartN_->EnterOrExit[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+EnterOrExit->OpEnterOrExit[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

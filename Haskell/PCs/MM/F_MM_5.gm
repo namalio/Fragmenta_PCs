@@ -1,0 +1,14 @@
+Morphism F_MM_5 {
+	nodes {
+		PNode->Node
+		PParameterised->Element
+		Stop->Node
+		Skip->Node
+		Operator->Node
+		PAction->Node
+		POperatorVal->Attribute
+	}
+	edges {
+	   Operator_op->Has
+	}
+}

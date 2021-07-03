@@ -1,0 +1,11 @@
+PC PC_ABusRide@ABusRide
+atom getOn
+compound ABusRide@getOn
+atom move
+after_connector getOn->move
+atom seat
+after_connector move->seat
+atom move2.move
+after_connector seat->move2
+atom getOff
+after_connector move2->getOff

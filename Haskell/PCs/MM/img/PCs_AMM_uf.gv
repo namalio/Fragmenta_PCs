@@ -1,0 +1,19 @@
+digraph {graph[label=PCs_AMM_uf,labelloc=tl,labelfontsize=12];
+subgraph cluster_PCs_AMM_uf{style=dashed;label=PCs_AMM_uf;
+"Attribute"[shape=record,fillcolor=lightskyblue1,style = filled,label="Attribute"];
+"Element"[shape=record,fillcolor=lightskyblue1,style = filled,label=<{<I>Element</I><br/>(A)}>];
+"PCDef"[shape=record,fillcolor=lightskyblue1,style = filled,label="PCDef"];
+"Connector"[shape=record,fillcolor=lightskyblue1,style = filled,label="Connector"];
+"Node"[shape=record,fillcolor=lightskyblue1,style = filled,label="Node"];
+
+"Element"->"Attribute"[label="Has▼",dir=none,taillabel="*",headlabel="*"];
+"Attribute"->"Attribute"[label="Has2▼",dir=none,taillabel="*",headlabel="*"];
+"Connector"->"Element"[arrowhead=onormal,arrowsize=2.0];
+"Node"->"Element"[arrowhead=onormal,arrowsize=2.0];
+"PCDef"->"Element"[label="Contains▼",arrowhead=vee,arrowtail=diamond,dir=both,headlabel="*"];
+"PCDef"->"Node"[label="Starts▼",dir=none,taillabel="0..1",headlabel=""];
+"Connector"->"Node"[label="Connector_src▼",arrowhead=vee,headlabel="",arrowsize=.5];
+"Connector"->"Node"[label="Connector_tgt▼",arrowhead=vee,headlabel="",arrowsize=.5];
+
+}
+}

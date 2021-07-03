@@ -1,0 +1,17 @@
+fragment F_AMM {
+  SG SG_AMM {
+    node Attribute
+    nodea Element
+    rel Element->Attribute[Has]:*,*
+    rel Attribute->Attribute[Has2]:*,*
+    node PCDef
+    node Node
+    node Connector
+    inh Connector->Element
+    inh Node->Element
+    compu PCDef->Element[Contains]:*
+    rel PCDef->Node[Starts]:0..1,1
+    relu Connector->Node[Connector_src]
+    relu Connector->Node[Connector_tgt]
+  }
+}

@@ -1,0 +1,16 @@
+PC PC_UnnoticedAttack@UnnoticedAttack
+atom activateAlarm
+compound UnnoticedAttack@activateAlarm
+import PC_HouseUnderAttack_EnterOrExit
+reference RefEnterOrExit.EnterOrExit
+ref_connector RefEnterOrExit->PC_HouseUnderAttack_EnterOrExit
+after_connector activateAlarm->RefEnterOrExit
+after_connector RefEnterOrExit->MoveStealEscape
+reference RefEnterOrExit2.EnterOrExit
+ref_connector RefEnterOrExit2->PC_HouseUnderAttack_EnterOrExit
+operator OpMoveStealEscape.OpChoice
+compound MoveStealEscape@OpMoveStealEscape
+atom moveSteal-:{intoHall,intoLivingRoom,intoKitchen,intoRoom,grabTV,grabLaptop,grabJewels}
+op_connector OpMoveStealEscape->moveSteal
+op_connector OpMoveStealEscape->RefEnterOrExit2
+after_connector moveSteal->MoveStealEscape

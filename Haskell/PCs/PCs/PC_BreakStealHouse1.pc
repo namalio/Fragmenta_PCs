@@ -1,0 +1,12 @@
+PC PC_BreakStealHouse1@BreakAndStealHouse
+compound BreakAndStealHouse@GetInside
+compound GetInside@OpGetInside
+atom breakDoor
+atom breakWindow
+atom stolenKey
+atom stealTV
+operator OpGetInside.OpChoice
+after_connector GetInside->stealTV
+op_connector OpGetInside->breakDoor
+op_connector OpGetInside->breakWindow
+op_connector OpGetInside->stolenKey

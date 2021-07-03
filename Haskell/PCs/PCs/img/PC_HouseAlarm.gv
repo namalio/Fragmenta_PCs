@@ -1,0 +1,36 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_HouseAlarm];
+RefHouseAlarm03 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+alarmSounds [shape=ellipse,fillcolor=greenyellow,style = filled,label="alarmSounds"];
+movement [shape=ellipse,fillcolor=greenyellow,style = filled,label=< {active and (not triggered)}<br/><I>anyof</I> aes<br/>[movement]>];
+RefHouseAlarm02 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+disableAlarm [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {active}
+disableAlarm"];
+activateAlarm [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {not active}
+activateAlarm"];
+HouseAlarm0 [shape=box,fillcolor=deepskyblue,style = filled,label="HouseAlarm0 (active,triggered)"];
+OpHouseAlarm0 [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+HouseAlarm [shape=box,fillcolor=deepskyblue,style = filled,label="HouseAlarm (aes)"];
+RefHouseAlarm0 [shape=rectangle,fillcolor="#CBD7EB",style="rounded,filled,dashed",label=" 
+(Inner)"];
+
+{rank=min;StartN_,HouseAlarm}
+{rank=same;activateAlarm,RefHouseAlarm02}
+{rank=same;movement,alarmSounds,RefHouseAlarm03}
+{rank=same;alarmSounds,RefHouseAlarm03}
+{rank=same;disableAlarm,RefHouseAlarm0}
+
+disableAlarm->RefHouseAlarm0[arrowtail=dot,dir=both,label="after"];
+alarmSounds->RefHouseAlarm03[arrowtail=dot,dir=both,label="after"];
+RefHouseAlarm03->HouseAlarm0[arrowhead="normalnormal",label=" (active,True)"];
+movement->alarmSounds[arrowtail=dot,dir=both,label="after"];
+OpHouseAlarm0->movement[arrowhead="vee",fillcolor=white];
+activateAlarm->RefHouseAlarm02[arrowtail=dot,dir=both,label="after"];
+RefHouseAlarm02->HouseAlarm0[arrowhead="normalnormal",label=" (True,False)"];
+OpHouseAlarm0->disableAlarm[arrowhead="vee",fillcolor=white];
+OpHouseAlarm0->activateAlarm[arrowhead="vee",fillcolor=white];
+RefHouseAlarm0->HouseAlarm0[arrowhead="normalnormal",label=" (False,False)"];
+StartN_->HouseAlarm[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+HouseAlarm0->OpHouseAlarm0[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+HouseAlarm->RefHouseAlarm0[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

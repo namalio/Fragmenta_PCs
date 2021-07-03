@@ -1,0 +1,24 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_Timer];
+RefTimer [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+tock [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {t>0}
+tock"];
+timeout [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {t==0}
+timeout"];
+STOP [shape=box,fillcolor=mistyrose2,style = filled,label="STOP"];
+OpIfChoice [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+OpTimer [shape=diamond,fillcolor=yellow,style = filled,label="If"];
+Timer [shape=box,fillcolor=deepskyblue,style = filled,label="Timer (t)"];
+
+{rank=min;StartN_,Timer}
+{rank=same;tock,RefTimer}
+
+RefTimer->Timer[arrowhead="normalnormal",label=" (t-1)"];
+tock->RefTimer[arrowtail=dot,dir=both,label="after"];
+OpIfChoice->tock[arrowhead="vee",fillcolor=white];
+OpIfChoice->timeout[arrowhead="vee",fillcolor=white];
+OpTimer->STOP[arrowhead="vee",label="Else"];
+OpTimer->OpIfChoice[arrowhead="vee",fillcolor=white,label="t>=0"];
+StartN_->Timer[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+Timer->OpTimer[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

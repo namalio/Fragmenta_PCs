@@ -1,0 +1,25 @@
+fragment F_MM_7 {
+  SG SG_MM_7 {
+    proxy PNode2
+    proxy PParameterised2
+    proxy PAction2
+    proxy PName
+    proxy PYesNo
+    proxy PGuarded
+    node Reference
+    node Renaming
+    inh Reference->PNode2
+    inh Reference->PParameterised2
+    inh Reference->PAction2
+    inh Reference->PGuarded
+    relu Reference->PName[Reference_name]:0..1
+    relu Reference->PYesNo[Reference_inner]
+    rel Reference->Renaming[Renamings]:1,*
+  }
+  ref PNode2->Node
+  ref PParameterised2->Parameterised
+  ref PAction2->Action
+  ref PName->Name
+  ref PYesNo->YesNo
+  ref PGuarded->Guarded
+}

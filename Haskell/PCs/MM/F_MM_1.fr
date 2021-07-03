@@ -1,0 +1,16 @@
+fragment F_MM_1 {
+  SG SG_MM_1 {
+    nodea Node
+    node PCDef
+    nodea NamedNode
+    nodea Connector
+    node Name
+    node StartN
+    inh NamedNode->Node
+    inh StartN->NamedNode
+    relu NamedNode->Name[NamedNode_name]
+    compu PCDef->Node[ContainsNs]:*
+    compu PCDef->Connector[ContainsCs]:*
+    rel PCDef->StartN[Starts]:1,1
+  }
+}

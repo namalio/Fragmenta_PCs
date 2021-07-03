@@ -1,0 +1,57 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_CCVM];
+RefGotPound [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+RefGot50p [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+coinPound [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {x<=50}
+coinPound"];
+coin50p [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {x<=100}
+coin50p"];
+latte [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {x==150}
+latte"];
+cappuccino [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {x==150}
+cappuccino"];
+macchiato [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {x==100}
+macchiato"];
+espresso [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {x==100}
+espresso"];
+OpGive [shape=diamond,fillcolor=yellow,style = filled,label="⊓"];
+return [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {x>0}
+return"];
+OpGet [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+Get [shape=box,fillcolor=deepskyblue,style = filled,label="Get "];
+Give [shape=box,fillcolor=deepskyblue,style = filled,label="Give "];
+OpGetandGive [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+giveMe [shape=ellipse,fillcolor=greenyellow,style = filled,label=" {x>=100}
+giveMe"];
+GetandGive [shape=box,fillcolor=deepskyblue,style = filled,label="GetandGive (x)"];
+RefGetandGive [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+CCVM [shape=box,fillcolor=deepskyblue,style = filled,label="CCVM "];
+
+{rank=min;StartN_,CCVM}
+{rank=same;RefGetandGive,CCVM}
+{rank=same;giveMe,OpGive}
+{rank=same;coin50p,RefGot50p}
+{rank=same;coinPound,RefGotPound}
+
+coinPound->RefGotPound[arrowtail=dot,dir=both,label="after"];
+coin50p->RefGot50p[arrowtail=dot,dir=both,label="after"];
+RefGotPound->GetandGive[arrowhead="normalnormal",label=" (x+100)"];
+RefGot50p->GetandGive[arrowhead="normalnormal",label=" (x+50)"];
+OpGet->coinPound[arrowhead="vee",fillcolor=white];
+OpGet->coin50p[arrowhead="vee",fillcolor=white];
+OpGive->latte[arrowhead="vee",fillcolor=white];
+OpGive->cappuccino[arrowhead="vee",fillcolor=white];
+OpGive->macchiato[arrowhead="vee",fillcolor=white];
+OpGive->espresso[arrowhead="vee",fillcolor=white];
+giveMe->OpGive[arrowtail=dot,dir=both,label="after"];
+OpGetandGive->return[arrowhead="vee",fillcolor=white];
+OpGetandGive->Give[arrowhead="vee",fillcolor=white];
+OpGetandGive->Get[arrowhead="vee",fillcolor=white];
+RefGetandGive->CCVM[arrowtail=dot,dir=both,label="after"];
+RefGetandGive->GetandGive[arrowhead="normalnormal",label=" (0)"];
+StartN_->CCVM[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+Get->OpGet[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Give->giveMe[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+GetandGive->OpGetandGive[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+CCVM->RefGetandGive[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

@@ -1,0 +1,28 @@
+digraph {graph[label=F_MM_2,labelloc=tl,labelfontsize=12];
+subgraph cluster_F_MM_2{style=dashed;label=F_MM_2;
+"PNamedNode"[shape=box,fillcolor=lightgray,style ="rounded,filled,dotted",label=<NamedNode<br/>(P)>];
+"Import"[shape=record,fillcolor=lightskyblue1,style = filled,label="Import"];
+"TargetOfRef"[shape=record,fillcolor=lightskyblue1,style ="filled,dotted",label=<{<I>TargetOfRef</I><br/>(V)}>];
+"Atom"[shape=record,fillcolor=lightskyblue1,style = filled,label="Atom"];
+"Compound"[shape=record,fillcolor=lightskyblue1,style = filled,label="Compound"];
+"Action"[shape=record,fillcolor=lightskyblue1,style ="filled,dotted",label=<{<I>Action</I><br/>(V)}>];
+"Parameterised"[shape=record,fillcolor=lightskyblue1,style ="filled,dotted",label=<{<I>Parameterised</I><br/>(V)}>];
+"Parameter"[shape=record,fillcolor=lightskyblue1,style = filled,label="Parameter"];
+"Guarded"[shape=record,fillcolor=lightskyblue1,style ="filled,dotted",label=<{<I>Guarded</I><br/>(V)}>];
+"Guard"[shape=record,fillcolor=lightskyblue1,style = filled,label="Guard"];
+
+"Import"->"PNamedNode"[arrowhead=onormal,arrowsize=2.0];
+"Compound"->"PNamedNode"[arrowhead=onormal,arrowsize=2.0];
+"Atom"->"PNamedNode"[arrowhead=onormal,arrowsize=2.0];
+"Import"->"TargetOfRef"[arrowhead=onormal,arrowsize=2.0];
+"Compound"->"TargetOfRef"[arrowhead=onormal,arrowsize=2.0];
+"Compound"->"Parameterised"[arrowhead=onormal,arrowsize=2.0];
+"Atom"->"Action"[arrowhead=onormal,arrowsize=2.0];
+"Atom"->"Guarded"[arrowhead=onormal,arrowsize=2.0];
+"Compound"->"Action"[arrowhead=onormal,arrowsize=2.0];
+"Parameterised"->"Parameter"[label="HasParams▼",arrowhead=vee,headlabel="*",arrowsize=.5];
+"Guarded"->"Guard"[label="HasGuard▼",dir=none,taillabel="",headlabel="0..1"];
+
+}
+
+}

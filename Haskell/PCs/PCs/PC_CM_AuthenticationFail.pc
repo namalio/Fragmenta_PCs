@@ -1,0 +1,17 @@
+PC PC_CM_AuthenticationFail@CMAF
+compound CMAF@cardIn
+atom cardIn
+atom fail
+atom fail2.fail
+atom fail3.fail
+atom cardSwallow
+atom deny
+after_connector cardIn->fail
+after_connector fail->fail2
+after_connector fail2->fail3
+after_connector fail3->deny
+after_connector deny->cardSwallow
+reference RefCashMachine.CashMachine
+import PC_CashMachine
+ref_connector RefCashMachine->PC_CashMachine
+after_connector cardSwallow->RefCashMachine

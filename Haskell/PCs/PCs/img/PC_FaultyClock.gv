@@ -1,0 +1,15 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_FaultyClock];
+STOP [shape=box,fillcolor=mistyrose2,style = filled,label="STOP"];
+OpFaultyClock [shape=diamond,fillcolor=yellow,style = filled,label="⊓"];
+FaultyClock [shape=box,fillcolor=deepskyblue,style = filled,label="FaultyClock "];
+tick [shape=ellipse,fillcolor=greenyellow,style = filled,label="tick"];
+
+{rank=min;StartN_,FaultyClock}
+
+tick->FaultyClock[arrowtail=dot,dir=both,label="after"];
+OpFaultyClock->STOP[arrowhead="vee",fillcolor=white];
+OpFaultyClock->tick[arrowhead="vee",fillcolor=white];
+StartN_->FaultyClock[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+FaultyClock->OpFaultyClock[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}
