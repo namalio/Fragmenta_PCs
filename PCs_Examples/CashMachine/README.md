@@ -7,7 +7,9 @@ using a parallel composition operator which synchronises on events <i>deny</i>, 
 
 <img src="PC_CardControl.jpg" alt="PC_CardControl">
 
-<i>PC_CardControl</i> introduces process <i>CardControl</i>, which manages the card inserted into the cash machine. <i>CardControl</i> offers the external choice of <i>cancel</i> and <i>cardIn</i>; <i>cancel</i> results in the graceful end of <i>CardControl</i>. Event <i>cardIn</i> triggers process <i>DoCardIn</i>, which expects either a <i>deny</i>, which results in the card being swallowed as the customer failed all tries of authentication, or a <i>cancel</i> (a customer requests the end of the cash machine interaction), which results in the card being ejected; once the card is ejected, the customer may either collect it within the specified timeout or he may forget to collect the card, in which case the machine swallows the card for security reasons.
+<i>PC_CardControl</i> manages the card inserted into the cash machine. <i>CardControl</i>, the starting process, offers the external choice of <i>cancel</i> and <i>cardIn</i>:
+* <i>cancel</i> results in the graceful end of <i>CardControl</i>.
+* Event <i>cardIn</i> triggers process <i>DoCardIn</i>, which expects either a <i>deny</i>, which results in the card being swallowed as the customer failed all tries of authentication, or a <i>cancel</i> (a customer requested the end of the cash machine interaction), which results in the card being ejected; once the card is ejected, the customer may either collect it within the specified timeout or he may forget to collect the card, in which case the machine swallows the card for security reasons.
 
 * <i>PC_CashMachineOps</i> describes the commencement of the cash machine operations. <i>CashMachineOps</i> expects the card to be inserted into the machine's slot, which starts the authentication procedure.
 * <i>PC_Authentication</i> describes authentication through a number of tries (parameter <i>n</i>).
