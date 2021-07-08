@@ -24,7 +24,7 @@ If there are no tries left, then event <i>deny</i> happens as authentication fai
 
 <i>PC_ShowBalance</i> says that the balance is shown to the customer (event <i>showBalance</i>).
 
-##Scenario-based Model Analysis
+## Scenario-based Model Analysis
 
 The scenario-based analysis tries to ascertain whether the PCs model of cash machine above express what is intended.
 
