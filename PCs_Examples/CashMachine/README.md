@@ -23,3 +23,12 @@ If there are no tries left, then event <i>deny</i> happens as authentication fai
 <i>PC_Withdraw</i> says that upon <i>withdraw</i> the cash may be collected, or the request may be denied (event <i>cashDeny</i>) due to insufficient funds or because the machine is unable to give out that amount.
 
 <i>PC_ShowBalance</i> says that the balance is shown to the customer (event <i>showBalance</i>).
+
+##Scenario-based Model Analysis
+
+The scenario-based analysis tries to ascertain whether the PCs model of cash machine above express what is intended.
+
+<img src="PC_CMAF.jpg" alt="PC_CMAF">
+
+<i>PC_CMAF</i> describes a scenario in which
+an authentication fails three times; the card is swallowed for security reasons.

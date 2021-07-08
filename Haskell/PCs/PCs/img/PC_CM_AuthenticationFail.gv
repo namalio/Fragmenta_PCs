@@ -10,13 +10,14 @@ fail [shape=ellipse,fillcolor=greenyellow,style = filled,label="fail"];
 cardIn [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardIn"];
 CMAF [shape=box,fillcolor=deepskyblue,style = filled,label="CMAF "];
 
-{rank=min;StartN_,CMAF}
-{rank=same;cardIn,fail,fail2,fail3,deny,cardSwallow,RefCashMachine}
+{rank=min;CMAF,cardIn}
+{rank=same;StartN_,fail,fail2,fail3,deny,cardSwallow,RefCashMachine}
 {rank=same;fail,fail2,fail3,deny,cardSwallow,RefCashMachine}
 {rank=same;fail2,fail3,deny,cardSwallow,RefCashMachine}
 {rank=same;fail3,deny,cardSwallow,RefCashMachine}
 {rank=same;deny,cardSwallow,RefCashMachine}
 {rank=same;cardSwallow,RefCashMachine}
+{rank=same;PC_CashMachine,CMAF}
 
 cardSwallow->RefCashMachine[arrowtail=dot,dir=both,label="after"];
 RefCashMachine->PC_CashMachine[arrowhead="normalnormal",label=" "];
