@@ -31,23 +31,25 @@ The scenario-based analysis that follows tries to ascertain whether CM's model e
 <img src="PC_CM_AuthenticationFail.jpg" alt="PC_CMAF">
 
 PC <i>PC_CM_AuthenticationFail</i> describes a scenario in which
-an authentication fails three times; after which, the card is swallowed for security reasons. The validity is confirmed by the CSP tool, hence: CashMachine &#2291; CMAF.
+an authentication fails three times; after which, the card is swallowed for security reasons. The validity is confirmed by the CSP tool (see CSP file 'PC_CM_Analysis1.csp'), hence: CashMachine &#x2291;<sub>T</sub> CMAF.
 
 <img src="PC_CM_2FailsCancel.jpg" alt="PC_CM2FsC">
 
-PC <i>PC_CM_2FailsCancel</i> describes an authentication which fails twice, after which the CM interaction is cancelled and the card is ejected and collected.
+PC <i>PC_CM_2FailsCancel</i> describes an authentication which fails twice, after which the CM interaction is cancelled and the card is ejected and collected.  The scenario is valid, hence: CashMachine &#x2291;<sub>T</sub> CM2FsC.
 
 <img src="PC_CM_OkWithdraw.jpg" alt="PC_CMOkWithdraw">
 
-PC <i>PC_CM_OkWithdraw</i> describes a successful authentication followed by a cash withdrawal.
+PC <i>PC_CM_OkWithdraw</i> describes a successful authentication followed by a cash withdrawal &mdash; CashMachine &#x2291;<sub>T</sub> CMOkWithdraw.
 
 <img src="PC_CM_OkBalanceForget.jpg" alt="PC_CMOkBalanceForget">
 
 PC <i>PC_CM_OkBalanceForget</i> describes
-a successful authentication, followed by a balance consultation, but the card is forgotten as it is not collected within the allowed time.
+a successful authentication, followed by a balance consultation, but the card is forgotten as it is not collected within the allowed time &mdash; CashMachine &#x2291;<sub>T</sub> CMOkBalanceForget.
 
 <img src="PC_CM_InvalidWithdraw.jpg" alt="PC_CMInvalidWithdraw">
 
-PC <i>PC_CM_InvalidWithdraw</i> describes an invalid scenario: an authentication which fails twice, followed by a successful cash withdrawal.
+PC <i>PC_CM_InvalidWithdraw</i> describes an invalid scenario: an authentication which fails twice, followed by a successful cash withdrawal &mdash; an invalid scenario: CashMachine
+<span class="overlay">&#x2215;</span>
+    &#x2291;<sub>T</sub> CMInvalidWithdraw
 
 ## Security verification
