@@ -30,9 +30,13 @@ The scenario-based analysis tries to ascertain whether the PCs model of CM above
 
 <img src="PC_CM_AuthenticationFail.jpg" alt="PC_CMAF">
 
-PC <i>PC_CMAF</i> describes a scenario in which
+PC <i>PC_CM_AuthenticationFail</i> describes a scenario in which
 an authentication fails three times; after which, the card is swallowed for security reasons.
 
-<img src="PC_CM_2FailsCancel.jpg" alt="PC_CMAF">
+<img src="PC_CM_2FailsCancel.jpg" alt="PC_CM2FsC">
 
-PC <i>PC_CM2FsC</i> describes an authentication which fails twice with the card being ejected after cancellation.
+PC <i>PC_CM_2FailsCancel</i> describes an authentication which fails twice, after which the CM interaction is cancelled and the card is ejected and collected.
+
+<img src="PC_CM_OkWithdraw.jpg" alt="PC_CMOkWithdraw">
+
+PC <i>PC_CM_OkWithdraw</i> describes a successful authentication followed by a cash withdrawal.

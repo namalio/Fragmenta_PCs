@@ -7,13 +7,15 @@ cardEject [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardEject"]
 cancel [shape=ellipse,fillcolor=greenyellow,style = filled,label="cancel"];
 cashCollect [shape=ellipse,fillcolor=greenyellow,style = filled,label="cashCollect"];
 withdraw [shape=ellipse,fillcolor=greenyellow,style = filled,label="withdraw"];
+optWithdraw [shape=ellipse,fillcolor=greenyellow,style = filled,label="optWithdraw"];
 grant [shape=ellipse,fillcolor=greenyellow,style = filled,label="grant"];
 cardIn [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardIn"];
 CMOkWithdraw [shape=box,fillcolor=deepskyblue,style = filled,label="CMOkWithdraw "];
 
 {rank=min;StartN_,CMOkWithdraw}
-{rank=same;cardIn,grant,withdraw,cashCollect,cancel,cardEject,cCollect,RefCashMachine}
-{rank=same;grant,withdraw,cashCollect,cancel,cardEject,cCollect,RefCashMachine}
+{rank=same;cardIn,grant,optWithdraw,withdraw,cashCollect,cancel,cardEject,cCollect,RefCashMachine}
+{rank=same;grant,optWithdraw,withdraw,cashCollect,cancel,cardEject,cCollect,RefCashMachine}
+{rank=same;optWithdraw,withdraw,cashCollect,cancel,cardEject,cCollect,RefCashMachine}
 {rank=same;withdraw,cashCollect,cancel,cardEject,cCollect,RefCashMachine}
 {rank=same;cashCollect,cancel,cardEject,cCollect,RefCashMachine}
 {rank=same;cancel,cardEject,cCollect,RefCashMachine}
@@ -26,7 +28,8 @@ cardEject->cCollect[arrowtail=dot,dir=both,label="after"];
 cancel->cardEject[arrowtail=dot,dir=both,label="after"];
 cashCollect->cancel[arrowtail=dot,dir=both,label="after"];
 withdraw->cashCollect[arrowtail=dot,dir=both,label="after"];
-grant->withdraw[arrowtail=dot,dir=both,label="after"];
+optWithdraw->withdraw[arrowtail=dot,dir=both,label="after"];
+grant->optWithdraw[arrowtail=dot,dir=both,label="after"];
 cardIn->grant[arrowtail=dot,dir=both,label="after"];
 StartN_->CMOkWithdraw[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
 CMOkWithdraw->cardIn[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
