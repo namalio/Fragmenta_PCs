@@ -26,7 +26,7 @@ If there are no tries left, then event <i>deny</i> happens as authentication fai
 
 ## Scenario-based Model Analysis
 
-The scenario-based analysis tries to ascertain whether the PCs model of cash machine above express what is intended.
+The scenario-based analysis tries to ascertain whether the PCs model of cash machine above expresses what is intended.
 
 <img src="PC_CMAF.jpg" alt="PC_CMAF">
 
