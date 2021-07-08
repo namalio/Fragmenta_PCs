@@ -1,1 +1,1 @@
-CMInvalidWithdraw = cardIn -> fail -> fail -> withdraw -> cashCollect -> cancel -> cardEject -> cCollect -> CashMachine
+CMInvalidWithdraw = cardIn -> fail -> fail -> optWithdraw -> withdraw -> cashDispense -> cancel -> cardEject -> cCollect -> CashMachine

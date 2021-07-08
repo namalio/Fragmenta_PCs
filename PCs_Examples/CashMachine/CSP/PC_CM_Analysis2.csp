@@ -1,0 +1,3 @@
+include "PC_CM_2FailsCancel.csp"
+
+assert CashMachine [T= CM2FsC

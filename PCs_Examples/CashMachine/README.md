@@ -26,12 +26,12 @@ If there are no tries left, then event <i>deny</i> happens as authentication fai
 
 ## Scenario-based Model Analysis
 
-The scenario-based analysis tries to ascertain whether the PCs model of CM above expresses what is intended.
+The scenario-based analysis that follows tries to ascertain whether CM's model expresses what is intended. Each scenario is accompanied by a CSP assertion which checks the scenario's validity and whose satisfaction can be checked using the FDR4 refinement checker.
 
 <img src="PC_CM_AuthenticationFail.jpg" alt="PC_CMAF">
 
 PC <i>PC_CM_AuthenticationFail</i> describes a scenario in which
-an authentication fails three times; after which, the card is swallowed for security reasons.
+an authentication fails three times; after which, the card is swallowed for security reasons. The validity is confirmed by the CSP tool, hence: CashMachine &#2291; CMAF.
 
 <img src="PC_CM_2FailsCancel.jpg" alt="PC_CM2FsC">
 
@@ -40,3 +40,14 @@ PC <i>PC_CM_2FailsCancel</i> describes an authentication which fails twice, afte
 <img src="PC_CM_OkWithdraw.jpg" alt="PC_CMOkWithdraw">
 
 PC <i>PC_CM_OkWithdraw</i> describes a successful authentication followed by a cash withdrawal.
+
+<img src="PC_CM_OkBalanceForget.jpg" alt="PC_CMOkBalanceForget">
+
+PC <i>PC_CM_OkBalanceForget</i> describes
+a successful authentication, followed by a balance consultation, but the card is forgotten as it is not collected within the allowed time.
+
+<img src="PC_CM_InvalidWithdraw.jpg" alt="PC_CMInvalidWithdraw">
+
+PC <i>PC_CM_InvalidWithdraw</i> describes an invalid scenario: an authentication which fails twice, followed by a successful cash withdrawal.
+
+## Security verification

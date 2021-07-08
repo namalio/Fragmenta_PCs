@@ -1,0 +1,3 @@
+include "PC_CM_OkBalanceForget.csp"
+
+assert CashMachine [T= CMOkBalanceForget

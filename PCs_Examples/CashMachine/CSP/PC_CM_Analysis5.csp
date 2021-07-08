@@ -1,0 +1,3 @@
+include "PC_CM_InvalidWithdraw.csp"
+
+assert CashMachine [T= CMInvalidWithdraw

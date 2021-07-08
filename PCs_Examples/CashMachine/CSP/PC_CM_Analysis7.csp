@@ -1,0 +1,4 @@
+include "PC_PAuthP.csp"
+include "PC_CM_InvalidWithdraw.csp"
+
+assert ThisAsset [T= CMInvalidWithdraw

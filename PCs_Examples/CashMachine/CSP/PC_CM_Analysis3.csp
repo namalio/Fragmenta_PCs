@@ -1,0 +1,3 @@
+include "PC_CM_OkWithdraw.csp"
+
+assert CashMachine [T= CMOkWithdraw
