@@ -62,5 +62,5 @@ as <i>CMBarred</i>. Protected events (set <i>pes</i>, atom <i>protected</i>) may
 Authentication is verified to be effective in CM as:
 * CMBarred &#x2291;<sub>T</sub> CashMachine (see CSP file 'PC_CM_Analysis6.csp'). This means that the cash machine satisfies the expectations of a barred asset.
 
-On the other hand, we have that <i>CMBarred</i>  disallows scenarios which carry out account operations without a prior authentication check:  
+On the other hand, we have that <i>CMBarred</i>  disallows scenarios in which account operations are carried out without a prior authentication check:  
 * CMBarred &#x22E2;<sub>T</sub> CMInvalidWithdraw (see CSP file 'PC_CM_Analysis7.csp').
