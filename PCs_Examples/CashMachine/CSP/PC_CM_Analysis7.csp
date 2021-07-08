@@ -1,4 +1,4 @@
-include "PC_PAuthP.csp"
+include "PC_CMBarredP.csp"
 include "PC_CM_InvalidWithdraw.csp"
 
-assert ThisAsset [T= CMInvalidWithdraw
+assert CMBarred [T= CMInvalidWithdraw
