@@ -1,5 +1,10 @@
 
-
+------------------
+-- Project: PCs/Utils
+-- Module: 'PCsUtils'
+-- Description: Utilities module of PCs
+-- Author: Nuno Amálio
+-----------------
 module PCsUtils(writeCSPToFile, checkWFAndGeneratePCTree, checkWF, optionsPCs, startPCOps, outputDrawing, outputCSP) where
 
 import Gr_Cls
@@ -380,8 +385,11 @@ main = do
 
 test = do 
     mmi<-load_mm_info mm_path
+    pc <- loadPC (pc_sg_cmm mmi) (pcs_path ++ "PC_CMBarred.pc")
+    is<-getImports pcs_path (pc_sg_cmm mmi) pc
+    putStrLn $ show is
     --generate_Timer mmi
-    generate_CashMachineOps mmi
+    --generate_CashMachineOps mmi
     --generate_HouseUnderAttack mmi
     --generate_HouseAttacker mmi
     --generate_SecuredHouse mmi

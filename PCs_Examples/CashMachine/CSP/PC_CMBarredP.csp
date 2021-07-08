@@ -1,4 +1,4 @@
-CMBarred = BarredAsset({cardIn},{cancel},{grant},{withdraw, showBalance},{cashDeny, cashCollect, fail, cardSwallow, cCollectTimeout, cCollect, cardEject, deny, cancel})
+CMBarred = BarredAsset({cardIn},{cancel},{grant},{optWithdraw, showBalance},{withdraw, cashDeny, cashDispense, fail, cardSwallow, cCollectTimeout, cCollect, cardEject, deny, cancel})
 
 BarredAsset(ses,rses,bes,pes,oes) = 
    let 

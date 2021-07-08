@@ -1,0 +1,1 @@
+CMOkWithdraw = cardIn -> grant -> optWithdraw -> withdraw -> cashDispense -> cancel -> cardEject -> cCollect -> CashMachine

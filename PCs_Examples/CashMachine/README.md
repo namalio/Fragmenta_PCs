@@ -35,21 +35,32 @@ an authentication fails three times; after which, the card is swallowed for secu
 
 <img src="PC_CM_2FailsCancel.jpg" alt="PC_CM2FsC">
 
-PC <i>PC_CM_2FailsCancel</i> describes an authentication which fails twice, after which the CM interaction is cancelled and the card is ejected and collected.  The scenario is valid, hence: CashMachine &#x2291;<sub>T</sub> CM2FsC.
+PC <i>PC_CM_2FailsCancel</i> describes an authentication which fails twice, after which the CM interaction is cancelled and the card is ejected and collected.  The scenario is valid, hence: CashMachine &#x2291;<sub>T</sub> CM2FsC (see CSP file 'PC_CM_Analysis2.csp').
 
 <img src="PC_CM_OkWithdraw.jpg" alt="PC_CMOkWithdraw">
 
-PC <i>PC_CM_OkWithdraw</i> describes a successful authentication followed by a cash withdrawal &mdash; CashMachine &#x2291;<sub>T</sub> CMOkWithdraw.
+PC <i>PC_CM_OkWithdraw</i> describes a successful authentication followed by a cash withdrawal &mdash; CashMachine &#x2291;<sub>T</sub> CMOkWithdraw (see CSP file 'PC_CM_Analysis3.csp').
 
 <img src="PC_CM_OkBalanceForget.jpg" alt="PC_CMOkBalanceForget">
 
 PC <i>PC_CM_OkBalanceForget</i> describes
-a successful authentication, followed by a balance consultation, but the card is forgotten as it is not collected within the allowed time &mdash; CashMachine &#x2291;<sub>T</sub> CMOkBalanceForget.
+a successful authentication, followed by a balance consultation, but the card is forgotten as it is not collected within the allowed time &mdash; CashMachine &#x2291;<sub>T</sub> CMOkBalanceForget (see CSP file 'PC_CM_Analysis4.csp').
 
 <img src="PC_CM_InvalidWithdraw.jpg" alt="PC_CMInvalidWithdraw">
 
-PC <i>PC_CM_InvalidWithdraw</i> describes an invalid scenario: an authentication which fails twice, followed by a successful cash withdrawal &mdash; an invalid scenario: CashMachine
-<span class="overlay">&#x2215;</span>
-    &#x2291;<sub>T</sub> CMInvalidWithdraw
+PC <i>PC_CM_InvalidWithdraw</i> describes an invalid scenario: an authentication which fails twice, followed by a successful cash withdrawal &mdash; an invalid scenario; hence: CashMachine &#x22E2;<sub>T</sub> CMInvalidWithdraw (see CSP file 'PC_CM_Analysis5.csp').
 
 ## Security verification
+
+PC <i>PC_CM_InvalidWithdraw</i> describes a violation of security not accepted by the modelled CM. The interesting question to answer is: is it possible to overcome the authentication security defence in CM?
+
+<img src="PC_CMBarred.jpg" alt="PC_CMBarred">
+
+To answer this question, PC PC_CMBarred describes authentication's security expectation in terms of a <i>BarredAsset</i>, instantiated for CM
+as <i>CMBarred</i>. Protected events (set <i>pes</i>, atom <i>protected</i>) may happen only after the barrier lifting events (set <i>bes</i>) occur (atom <i>erect</i>); before the lifting, only events in sets <i>ses</i> (start events), <i>rses</i> (re-start events) and <i>oes</i> (other events) may occur; after the lifting both <i>pes</i> and <i>oes</i> events are allowed to happen. In CM, <i>optWithdraw</i> and <i>showBalance</i> are protected events, <i>grant</i> lifts the barrier.
+
+Authentication is verified to be effective in CM as:
+* CMBarred &#x2291;<sub>T</sub> CashMachine (see CSP file 'PC_CM_Analysis6.csp'). This means that the cash machine satisfies the expectations of a barred asset.
+
+On the other hand, we have that <i>CMBarred</i>  disallows scenarios which carry out account operations without a prior authentication check:  
+* CMBarred &#x22E2;<sub>T</sub> CMInvalidWithdraw (see CSP file 'PC_CM_Analysis7.csp').

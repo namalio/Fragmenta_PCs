@@ -1,1 +1,1 @@
-channel cashDeny, cashCollect, withdraw, showBalance, fail, grant, cardSwallow, cCollectTimeout, cCollect, cardEject, cardIn, deny, cancel
+channel cashDispense, cashDeny, withdraw, optWithdraw, showBalance, fail, grant, cardSwallow, cCollectTimeout, cCollect, cardEject, cardIn, deny, cancel

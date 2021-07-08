@@ -1,1 +1,1 @@
-channel withdraw, cashDeny, cashCollect
+channel optWithdraw, withdraw, cashDeny, cashDispense
