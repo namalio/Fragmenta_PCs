@@ -28,7 +28,7 @@ If there are no tries left, then event <i>deny</i> happens as authentication fai
 
 The scenario-based analysis tries to ascertain whether the PCs model of cash machine above expresses what is intended.
 
-<img src="PC_CMAF.jpg" alt="PC_CMAF">
+<img src="PC_CM_AuthenticationFail.jpg" alt="PC_CMAF">
 
 <i>PC_CMAF</i> describes a scenario in which
 an authentication fails three times; the card is swallowed for security reasons.
