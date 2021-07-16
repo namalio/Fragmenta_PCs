@@ -1,0 +1,1 @@
+channel closeOrder, receiveOrder, orderRejected, orderAccepted, sendInvoice, receivePayment, fillOrder, regular, express
