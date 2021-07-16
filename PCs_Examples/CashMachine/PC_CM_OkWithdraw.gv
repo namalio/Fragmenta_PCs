@@ -1,0 +1,31 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_CM_OkWithdraw];
+PC_CashMachine [shape=hexagon,fillcolor=orangered,style=filled,label =PC_CashMachine];
+RefCashMachine [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="CashMachine "];
+cCollect [shape=ellipse,fillcolor=greenyellow,style = filled,label="cCollect"];
+cardEject [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardEject"];
+cancel [shape=ellipse,fillcolor=greenyellow,style = filled,label="cancel"];
+cashDispense [shape=ellipse,fillcolor=greenyellow,style = filled,label="cashDispense"];
+withdraw [shape=ellipse,fillcolor=greenyellow,style = filled,label="withdraw"];
+optWithdraw [shape=ellipse,fillcolor=greenyellow,style = filled,label="optWithdraw"];
+grant [shape=ellipse,fillcolor=greenyellow,style = filled,label="grant"];
+cardIn [shape=ellipse,fillcolor=greenyellow,style = filled,label="cardIn"];
+CMOkWithdraw [shape=box,fillcolor=deepskyblue,style = filled,label="CMOkWithdraw "];
+
+{rank=min;StartN_,CMOkWithdraw,PC_CashMachine,grant}
+{rank=same;cardIn,optWithdraw,cancel,cardEject,RefCashMachine}
+{rank=same;grant,cashDispense,cCollect,withdraw}
+
+cCollect->RefCashMachine[arrowtail=dot,dir=both,label="after"];
+RefCashMachine->PC_CashMachine[arrowhead="normalnormal",label=" "];
+cardEject->cCollect[arrowtail=dot,dir=both,label="after"];
+cancel->cardEject[arrowtail=dot,dir=both,label="after"];
+cashDispense->cancel[arrowtail=dot,dir=both,label="after"];
+withdraw->cashDispense[arrowtail=dot,dir=both,label="after"];
+optWithdraw->withdraw[arrowtail=dot,dir=both,label="after"];
+grant->optWithdraw[arrowtail=dot,dir=both,label="after"];
+cardIn->grant[arrowtail=dot,dir=both,label="after"];
+StartN_->CMOkWithdraw[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+CMOkWithdraw->cardIn[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+cardEject->RefCashMachine[style=invis];
+}

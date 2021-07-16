@@ -1,0 +1,1 @@
+ProtectedHouse = HouseAlarm({intoHall},{mainDoor,roomWindow},{intoRoom,intoKitchen,intoLivingRoom,grabTV,grabJewels,grabLaptop})[|{intoHall,mainDoor,roomWindow,intoRoom,intoKitchen,intoLivingRoom,grabTV,grabJewels,grabLaptop}|]HouseUnderAttack
