@@ -1,5 +1,7 @@
-The <i>Bool setter</i>, an example inspired by [Hoa85], but in which there is an initial value assignment to <i>False</i>.
+# BoolSetter
 
-<b>References</b>
+<i>Bool setter</i> is an example taken from [Hoa85]. In this version, there is an initial value assignment to <i>False</i>.
+
+### References
 
 [Hoa85] Anthony Hoare. Communicating Sequential Processes. Prentice-Hall International. 1985.
