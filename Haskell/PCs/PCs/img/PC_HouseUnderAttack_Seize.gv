@@ -1,0 +1,34 @@
+digraph {
+StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_HouseUnderAttack_Seize];
+RefEnterOrExit2 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+RefSeizeControl2 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+seize [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>any</I> e:ges<br/>[seize]>];
+RefSeizeControl [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+SeizeControl [shape=box,fillcolor=deepskyblue,style = filled,label="SeizeControl (ges)"];
+OpSeize [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+Seize [shape=box,fillcolor=deepskyblue,style = filled,label="Seize "];
+RefEnterOrExit [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label=" "];
+EnterOrExit [shape=box,fillcolor=deepskyblue,style = filled,label="EnterOrExit "];
+OpEnterOrExit [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
+roomWindow [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
+mainDoor [shape=ellipse,fillcolor=greenyellow,style = filled,label="mainDoor"];
+
+{rank=min;StartN_,Seize}
+{rank=same;RefEnterOrExit,RefSeizeControl}
+{rank=same;seize,RefSeizeControl2}
+
+RefEnterOrExit2->EnterOrExit[arrowhead="normalnormal",label=" "];
+OpSeize->RefEnterOrExit2[arrowhead="vee",fillcolor=white];
+seize->RefSeizeControl2[arrowtail=odot,dir=both,label="after"];
+RefSeizeControl2->SeizeControl[arrowhead="normalnormal",label=" (diff(ges, {e}))"];
+OpSeize->seize[arrowhead="vee",fillcolor=white];
+RefSeizeControl->SeizeControl[arrowhead="normalnormal",label=" ({grabTV,grabLaptop,grabJewels})"];
+RefEnterOrExit->RefSeizeControl[arrowtail=dot,dir=both,label="after"];
+RefEnterOrExit->EnterOrExit[arrowhead="normalnormal",label=" "];
+OpEnterOrExit->roomWindow[arrowhead="vee",fillcolor=white];
+OpEnterOrExit->mainDoor[arrowhead="vee",fillcolor=white];
+StartN_->Seize[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];
+SeizeControl->OpSeize[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+Seize->RefEnterOrExit[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+EnterOrExit->OpEnterOrExit[arrowhead="onormal",dir=both,arrowtail=obox,penwidth=2,label="="];
+}

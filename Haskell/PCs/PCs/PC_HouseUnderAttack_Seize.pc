@@ -1,0 +1,23 @@
+PC PC_HouseUnderAttack_Seize@Seize
+atom mainDoor
+atom roomWindow
+operator OpEnterOrExit.OpChoice
+compound EnterOrExit@OpEnterOrExit
+op_connector OpEnterOrExit->mainDoor
+op_connector OpEnterOrExit->roomWindow
+reference RefEnterOrExit
+ref_connector RefEnterOrExit->EnterOrExit
+compound Seize@RefEnterOrExit
+after_connector RefEnterOrExit->RefSeizeControl
+operator OpSeize.OpChoice
+compound SeizeControl.ges@OpSeize
+reference RefSeizeControl
+ref_connector RefSeizeControl->SeizeControl.{grabTV,grabLaptop,grabJewels}
+atom seize<e:ges>
+op_connector OpSeize->seize
+reference RefSeizeControl2
+ref_connector RefSeizeControl2->SeizeControl.diff(ges, {e})
+after_connector open seize->RefSeizeControl2
+op_connector OpSeize->RefEnterOrExit2
+reference RefEnterOrExit2
+ref_connector RefEnterOrExit2->EnterOrExit

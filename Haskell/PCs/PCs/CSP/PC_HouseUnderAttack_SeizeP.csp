@@ -1,0 +1,7 @@
+Seize = EnterOrExit; SeizeControl({grabTV,grabLaptop,grabJewels})
+
+EnterOrExit = roomWindow -> SKIP
+      [] mainDoor -> SKIP
+
+SeizeControl(ges) = EnterOrExit
+      [] ([] e : ges @ e -> SeizeControl(diff(ges, {e})))

@@ -9,16 +9,16 @@ living room, bedroom or kitchen, and vice-versa. The window gives access to the 
 
 <img src="PC_HouseUnderAttack.jpg" alt="PC_HouseUnderAttack">
 
-The PC above describes the attack surface through process <i>HouseUnderAttack</i>, which is defined as the parallel composition of processes <i>Snatch</i> and <i>Ransack</i>; <i>Snatch</i> controls the stolen objects and <i>RanSack</i> describes how someone may go through the house and grab the valuables inside.
+The PC above describes the attack surface through process <i>HouseUnderAttack</i>, which is defined as the parallel composition of processes <i>Seize</i> and <i>Ransack</i>; <i>Seize</i> controls the stolen objects and <i>RanSack</i> describes how someone may go through the house and grab the valuables inside.
 
 <img src="PC_HouseUnderAttack_Ransack.jpg" alt="PC_HouseUnderAttack_Ransack">
 
 In <i>PC_HouseUnderAttack_Ransack</i>, an attacker enters the premises through the entry points. The main door entrance gives access to the hall which is captured by process <i>IntoHall</i>, triggered upon event <i>intoHall</i> (someone reached the hall); the hall gives access to kitchen (event <i>intoKitchen</i>), bedroom (process <i>IntoRoom</i>) and living-room (event <i>intoLivingRoom</i>). The bedroom window entrance gives access to the bedroom.  While <i>InLivingRoom</i>, an attacker may grab hold of the TV, or go back to the hall. While <i>InRoom</i>, an attacker may grab either the laptop or jewellery (an atom which can either be <i>any</i> of the events of the given set), join the hall (reference to <i>IntoHall</i>), or leave the house through the bedroom window (<i>roomWindow</i>).
 
-<img src="PC_HouseUnderAttack_Snatch.jpg" alt="PC_HouseUnderAttack_Snatch">
+<img src="PC_HouseUnderAttack_Seize.jpg" alt="PC_HouseUnderAttack_Seize">
 
-PC <i>PC_HouseUnderAttack_Snatch</i>,
-process <i>Snatch</i> says that an attacker may get into the premises through the entry points. While inside, the attacker may snatch items, corresponding to the events <i>grabTV</i>, <i>grabLaptop</i>, <i>grabJewels</i>, as per process <i>SnatchControl</i>. Snapped items may no longer be snitched again (corresponding event is removed from allowed event set).
+PC <i>PC_HouseUnderAttack_Seize</i>,
+process <i>Seize</i> says that an attacker may get into the premises through the entry points. While inside, the attacker may snatch items, corresponding to the events <i>grabTV</i>, <i>grabLaptop</i>, <i>grabJewels</i>, as per process <i>SeizeControl</i>. Seized items may no longer be snitched again (corresponding event is removed from allowed event set).
 
 ## Modelling the Security Defence
 

@@ -1,7 +1,7 @@
 digraph {
 StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_HouseUnderAttack];
-RefSnatch [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="Snatch "];
-PC_HouseUnderAttack_Snatch [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseUnderAttack_Snatch];
+RefSeize [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="Seize "];
+PC_HouseUnderAttack_Seize [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseUnderAttack_Seize];
 RefRansack [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="Ransack "];
 PC_HouseUnderAttack_Ransack [shape=hexagon,fillcolor=orangered,style=filled,label =PC_HouseUnderAttack_Ransack];
 HouseUnderAttack [shape=box,fillcolor=deepskyblue,style = filled,label="HouseUnderAttack "];
@@ -12,8 +12,8 @@ OpHouseUnderAttack->OpHouseUnderAttack_ps [dir=none,color="black:invis:black"];
 
 {rank=min;StartN_,HouseUnderAttack}
 
-OpHouseUnderAttack->RefSnatch[arrowhead="vee",fillcolor=white];
-RefSnatch->PC_HouseUnderAttack_Snatch[arrowhead="normalnormal",label=" "];
+OpHouseUnderAttack->RefSeize[arrowhead="vee",fillcolor=white];
+RefSeize->PC_HouseUnderAttack_Seize[arrowhead="normalnormal",label=" "];
 OpHouseUnderAttack->RefRansack[arrowhead="vee",fillcolor=white];
 RefRansack->PC_HouseUnderAttack_Ransack[arrowhead="normalnormal",label=" "];
 StartN_->HouseUnderAttack[arrowhead="open",arrowtail=diamond,dir=both,label="starts"];

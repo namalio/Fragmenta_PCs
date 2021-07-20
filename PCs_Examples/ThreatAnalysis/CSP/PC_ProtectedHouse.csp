@@ -3,5 +3,5 @@ include "PC_ProtectedHouse_base.csp"
 
 include "PC_ProtectedHouse_HouseAlarmP.csp"
 include "PC_HouseUnderAttackP.csp"
-include "PC_HouseUnderAttack_SnatchP.csp"
+include "PC_HouseUnderAttack_SeizeP.csp"
 include "PC_HouseUnderAttack_RansackP.csp"

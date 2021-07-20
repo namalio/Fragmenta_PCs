@@ -5,7 +5,7 @@ import PC_HouseUnderAttack_Ransack
 reference RefRansack.Ransack
 ref_connector RefRansack->PC_HouseUnderAttack_Ransack
 op_connector OpHouseUnderAttack->RefRansack
-import PC_HouseUnderAttack_Snatch
-reference RefSnatch.Snatch
-ref_connector RefSnatch->PC_HouseUnderAttack_Snatch
-op_connector OpHouseUnderAttack->RefSnatch
+import PC_HouseUnderAttack_Seize
+reference RefSeize.Seize
+ref_connector RefSeize->PC_HouseUnderAttack_Seize
+op_connector OpHouseUnderAttack->RefSeize

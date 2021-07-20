@@ -1,0 +1,3 @@
+include "PC_HouseUnderAttack_SeizeP.csp"
+include "PC_HouseUnderAttack_Seize_base.csp"
+

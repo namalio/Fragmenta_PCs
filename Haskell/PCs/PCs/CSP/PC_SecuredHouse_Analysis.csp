@@ -1,12 +1,6 @@
 include "PC_ProtectedHouse.csp"
--- include "PC_UnnoticedAttackP.csp"
 include "PC_SecuredHouseP.csp"
 include "PC_SuccessfulHouseAttackP.csp"
-
--- Evs = {activateAlarm,intoRoom,intoHall,intoLivingRoom,intoKitchen,grabTV,grabLaptop,grabJewels,roomWindow,mainDoor}
--- assert ProtectedHouse [T= (UnnoticedAttack [|Evs|]ProtectedHouse)
-
---SecdHouse = SecuredHouse({mainDoor,roomWindow},{intoRoom,intoHall,intoLivingRoom,intoKitchen,grabTV,grabJewels,grabLaptop})
 
 assert ThisSecuredHouse [T= ProtectedHouse
 
