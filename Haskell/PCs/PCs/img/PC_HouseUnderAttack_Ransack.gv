@@ -2,7 +2,7 @@ digraph {
 StartN_ [shape = cds,color=burlywood2,style=filled,height=.2,width=.2, label =PC_HouseUnderAttack_Ransack];
 RefIntoHall2 [shape=rectangle,fillcolor=gray,style="rounded,filled,dashed",label="IntoHall "];
 roomWindow2 [shape=ellipse,fillcolor=greenyellow,style = filled,label="roomWindow"];
-snatch [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>anyof</I> {grabLaptop,grabJewels}<br/>[snatch]>];
+seize [shape=ellipse,fillcolor=greenyellow,style = filled,label=<<I>anyof</I> {grabLaptop,grabJewels}<br/>[seize]>];
 OpInRoom [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
 InRoom [shape=box,fillcolor=deepskyblue,style = filled,label="InRoom "];
 intoRoom [shape=ellipse,fillcolor=greenyellow,style = filled,label="intoRoom"];
@@ -32,9 +32,9 @@ OpInHouse [shape=diamond,fillcolor=yellow,style = filled,label="◻︎"];
 
 OpInRoom->RefIntoHall2[arrowhead="vee",fillcolor=white];
 
-snatch->InRoom[arrowtail=dot,dir=both,label="after"];
+seize->InRoom[arrowtail=dot,dir=both,label="after"];
 OpInRoom->roomWindow2[arrowhead="vee",fillcolor=white];
-OpInRoom->snatch[arrowhead="vee",fillcolor=white];
+OpInRoom->seize[arrowhead="vee",fillcolor=white];
 intoRoom->InRoom[arrowtail=dot,dir=both,label="after"];
 grabTV->InLivingRoom[arrowtail=dot,dir=both,label="after"];
 OpInLivingRoom->grabTV[arrowhead="vee",fillcolor=white];

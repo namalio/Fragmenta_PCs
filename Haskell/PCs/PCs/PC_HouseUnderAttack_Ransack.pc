@@ -36,11 +36,11 @@ compound IntoRoom@intoRoom
 compound InRoom@OpInRoom
 operator OpInRoom.OpChoice
 after_connector intoRoom->InRoom
-atom snatch<:{grabLaptop,grabJewels}>
-op_connector OpInRoom->snatch
+atom seize<:{grabLaptop,grabJewels}>
+op_connector OpInRoom->seize
 atom roomWindow2.roomWindow
 op_connector OpInRoom->roomWindow2
-after_connector snatch->InRoom
+after_connector seize->InRoom
 reference RefIntoHall2.IntoHall
 ref_connector hidden RefIntoHall2->IntoHall
 op_connector OpInRoom->RefIntoHall2
